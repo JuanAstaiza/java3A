@@ -1,0 +1,4 @@
+Configurar Credenciales de Usuario
+
+$ gir config --global user.name "JuanAstaiza"
+$ gir config --global user.email "juancarlosastaiza@gmail.com"
