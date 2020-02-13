@@ -1,4 +1,8 @@
 Configurar Credenciales de Usuario
 
-$ gir config --global user.name "JuanAstaiza"
-$ gir config --global user.email "juancarlosastaiza@gmail.com"
+$ git config --global user.name "JuanAstaiza"
+$ git config --global user.email "juancarlosastaiza@gmail.com"
+
+Stragin/Tracking
+
+$ git status
