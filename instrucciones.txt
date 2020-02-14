@@ -1,10 +1,11 @@
 Configurar Credenciales de Usuario
+_________________________________________________________________
 
 $ git config --global user.name "JuanAstaiza"
 $ git config --global user.email "juancarlosastaiza@gmail.com"
 
 Stragin/Tracking
-
+________________________________________________________________
 git status
 git add (nombre archiv.ext) 
 git add . (varios)
