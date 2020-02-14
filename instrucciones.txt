@@ -5,4 +5,10 @@ $ git config --global user.email "juancarlosastaiza@gmail.com"
 
 Stragin/Tracking
 
-$ git status
+git status
+git add (nombre archiv.ext) 
+git add . (varios)
+git commit -m "Mi primer Tracking"
+git push
+
+
