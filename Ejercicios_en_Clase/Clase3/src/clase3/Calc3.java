@@ -9,7 +9,7 @@ package clase3;
  *
  * @author Aula1
  */
-public class Clase3 {
+public class Calc3 {
 
     /**
      * @param args the command line arguments
@@ -20,7 +20,7 @@ public class Clase3 {
         if(a>b){
            System.out.print("El mayor es:"+ a);          
         }else if(a<b){
-           System.err.println("El mayor es: "+b);           
+           System.out.println("El mayor es: "+b);           
         }else{
            System.out.print("Son iguales.");
         }
