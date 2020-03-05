@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class tabla_Multiplicar {
 
     public static void main(String[] args) {
+        //PROGRAMA QUE PERMITE ESCOGER LA TABLA QUE DESEA MOSTRAR Y ENTRE UN RANGO ESPECIFICO
         Scanner lector = new Scanner(System.in);
 
         int num = 0,limI=0,limF=0,res=0;
