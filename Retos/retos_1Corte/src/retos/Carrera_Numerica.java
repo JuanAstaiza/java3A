@@ -130,7 +130,7 @@ public class Carrera_Numerica {
                 System.out.println("");
                 System.out.println("Jugador "+i+" :");
                 System.out.println("Por favor presione ENTER para lanzar DADOS..... : ");
-                String entrada  = lector.nextLine();
+                lector.nextLine();
                 int dado1 = (int) (Math.random()*6+1);
                 int dado2 = (int) (Math.random()*6+1);
                 System.out.println("DADO 1: "+dado1);
