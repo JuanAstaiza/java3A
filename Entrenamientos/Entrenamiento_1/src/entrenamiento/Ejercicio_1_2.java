@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Aula1
  */
-public class Ejercicio_2 {
+public class Ejercicio_1_2 {
     
     
     public static void main(String[] args) {
@@ -20,10 +20,7 @@ public class Ejercicio_2 {
         1.2 Escriba un programa que muestre las tablas de multiplicar de 1 al 10, con un intervalo
         de serie de 1 a 10. (Estructura FOR)
          */
-        
-    
-        int res=0;
-        
+        int res=0;        
         
         System.out.println("-----------------------------------");
         System.out.println("TABLAS DE MULTIPLICAR");

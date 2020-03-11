@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author JUAN CARLOS ASTAIZA
  */
-public class Carrera_Numerica {
+public class carrera_Numerica {
 
     /**
      * @param args the command line arguments
