@@ -5,16 +5,17 @@
  */
 package calculadora_superBasica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aula1
  */
-public class calculadora extends javax.swing.JFrame {
-    int num1=0,num2=0,res=0;
+public class calculadoraBasica extends javax.swing.JFrame {
     /**
      * Creates new form calculadora
      */
-    public calculadora() {
+    public calculadoraBasica() {
         initComponents();
     }
 
@@ -34,6 +35,8 @@ public class calculadora extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnSumar = new javax.swing.JButton();
         txtPrimerNumero = new javax.swing.JTextField();
+        txtResultado = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -68,10 +71,29 @@ public class calculadora extends javax.swing.JFrame {
             }
         });
 
+        txtResultado.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtResultado.setEnabled(false);
+        txtResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtResultadoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel4.setText("RESULTADO:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtPrimerNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(txtSegundoNumero)
+                    .addComponent(txtResultado, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -81,16 +103,12 @@ public class calculadora extends javax.swing.JFrame {
                         .addGap(170, 170, 170)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(201, 201, 201)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
                         .addComponent(btnSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtPrimerNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
-                    .addComponent(txtSegundoNumero))
-                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,8 +124,12 @@ public class calculadora extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtSegundoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(btnSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,25 +153,33 @@ public class calculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
-        
+        int num1=0,num2=0,res=0;        
+        num1=Integer.parseInt(txtPrimerNumero.getText());
+        num2=Integer.parseInt(txtSegundoNumero.getText());
         System.out.println("---------------------");
         System.out.println("RESULTADO: ");
-        System.out.println("---------------------");
+        System.out.println("---------------------");  
         res=num1+num2;
-        System.out.println(num1+num2);
+        System.out.println();
+        txtPrimerNumero.setText("");
+        txtSegundoNumero.setText("");
+        txtResultado.setText(Integer.toString(num1)+" + "+Integer.toString(num2)+" = "+Integer.toString(res));
+        //JOptionPane.showMessageDialog(rootPane,num1+num2);
         
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void txtPrimerNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrimerNumeroActionPerformed
-        num1=Integer.parseInt(txtPrimerNumero.getText());
-        System.out.println(num1);
+        
     }//GEN-LAST:event_txtPrimerNumeroActionPerformed
 
     private void txtSegundoNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegundoNumeroActionPerformed
-        num2=Integer.parseInt(txtPrimerNumero.getText());
-        System.out.println(num2);
+       
 
     }//GEN-LAST:event_txtSegundoNumeroActionPerformed
+
+    private void txtResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtResultadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,20 +198,21 @@ public class calculadora extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(calculadoraBasica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(calculadoraBasica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(calculadoraBasica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(calculadoraBasica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new calculadora().setVisible(true);
+                new calculadoraBasica().setVisible(true);
             }
         });
     }
@@ -191,8 +222,10 @@ public class calculadora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtPrimerNumero;
+    private javax.swing.JTextField txtResultado;
     private javax.swing.JTextField txtSegundoNumero;
     // End of variables declaration//GEN-END:variables
 }
