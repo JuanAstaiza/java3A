@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author JUAN CARLOS ASTAIZA
+ * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
 public class alphabet_Rangol {
     
@@ -18,37 +18,61 @@ public class alphabet_Rangol {
         /*
         Se le da un número entero, . Su tarea es imprimir un alfabeto rangoli de 
         tamaño . (Rangoli es una forma de arte popular indio basado en la creación
-        de patrones).
-        
+        de patrones).        
         */
         
         Scanner lector=new Scanner(System.in);
         
         int num=0;
+        boolean b=true;
         
-        String[] letras={"","a","b","c","d","e","f","g","h","i","j","k","l","m","ñ","o",
-                        "p","q","r","t","u","w","x","y","z"};
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("PROGRAMA QUE GENERA UN TRIANGULO DE ACUERDO AL NUMERO DADO POR EL USUARIO");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("");
         
-        System.out.println("Digite un número: ");
-        num=lector.nextInt();
-
-        for(int i=1;i<=num;i++){
-            for(int j=i;j<num;j++){
-                System.out.print(" ");
+        System.out.println("NOTA: El numero ingresado debe estar entre 1 y 27.");
+        
+        String[] alfabeto={"","a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o",
+                        "p","q","r","s","t","u","v","w","x","y","z"};
+        
+        
+        while(b!=false){
+            System.out.println("Ingrese un número: ");
+            num=lector.nextInt();
+            if(num>=28 || num<=0){
+                System.out.println("NUMERO INCORRECTO.");
+                b=true;
+            }else{
+                b=false;
             }
-            for(int k=1;k<(i*2);k++){
-                System.out.print(letras[i]);
-            }
-        System.out.println(" ");
         }
-        for(int i=num-1;i>=1;i--){
-            for(int j=num;j>i;j--){
-            System.out.print(" ");
+
+        int ajuste1=num-1;
+        int ajuste2=num+1;
+        int ajuste3=1;
+        int ajuste4=3;
+        for(int f=num;f>=1;f--){
+           System.out.println(" ");
+           for(int i=num;i>ajuste1;i--){
+              System.out.print(alfabeto[i]+" ");
+           }
+           for(int i=ajuste2;i<=num;i++){
+              System.out.print(alfabeto[i]+" ");
+           }
+        ajuste2--;
+        ajuste1--;
+        }
+        for(int f1=num;f1>=1;f1--){
+           System.out.println(" ");      
+            for(int j=num;j>ajuste3;j--){
+               System.out.print(alfabeto[j]+" ");
             }
-            for(int k=1;k<(i*2);k++){
-               System.out.print(letras[i]);
-            }
-        System.out.println(" ");
+            for(int j=ajuste4;j<=num;j++){
+              System.out.print(alfabeto[j]+" ");
+           }
+        ajuste4++;  
+        ajuste3++;
         }
     
     }
