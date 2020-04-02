@@ -18,6 +18,7 @@ public class WindowPrueba extends javax.swing.JFrame {
      */
     public WindowPrueba() {
         initComponents();
+   
     }
 
     /**
