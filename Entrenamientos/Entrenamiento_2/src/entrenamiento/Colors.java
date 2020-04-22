@@ -1,5 +1,7 @@
 package entrenamiento;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,8 +17,12 @@ public class Colors extends javax.swing.JFrame {
     /**
      * Creates new form Colors
      */
+    int cont=0;
+        String[] colores = new String[2];
+
     public Colors() {
         initComponents();
+        
     }
 
     /**
@@ -35,10 +41,10 @@ public class Colors extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblColorSelected = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        lblChangeColor = new javax.swing.JLabel();
+        lblChangeColor_Current = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblChangeColor1 = new javax.swing.JLabel();
+        lblChangeColor_Previous = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -85,9 +91,13 @@ public class Colors extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(40, 140, 310, 40);
 
-        lblChangeColor.setText("...");
-        jPanel1.add(lblChangeColor);
-        lblChangeColor.setBounds(40, 250, 140, 70);
+        lblChangeColor_Current.setBackground(new java.awt.Color(255, 255, 255));
+        lblChangeColor_Current.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblChangeColor_Current.setText("...");
+        lblChangeColor_Current.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblChangeColor_Current.setOpaque(true);
+        jPanel1.add(lblChangeColor_Current);
+        lblChangeColor_Current.setBounds(40, 250, 140, 70);
 
         jLabel5.setText("Current color:");
         jPanel1.add(jLabel5);
@@ -97,9 +107,13 @@ public class Colors extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(210, 230, 140, 14);
 
-        lblChangeColor1.setText("...");
-        jPanel1.add(lblChangeColor1);
-        lblChangeColor1.setBounds(210, 250, 140, 70);
+        lblChangeColor_Previous.setBackground(new java.awt.Color(255, 255, 255));
+        lblChangeColor_Previous.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblChangeColor_Previous.setText("...");
+        lblChangeColor_Previous.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblChangeColor_Previous.setOpaque(true);
+        jPanel1.add(lblChangeColor_Previous);
+        lblChangeColor_Previous.setBounds(210, 250, 140, 70);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Add new colors"));
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
@@ -144,12 +158,70 @@ public class Colors extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        cont++;
+
+        String Colorantes=colores[0];
+        String colorActual = cmbColors.getSelectedItem().toString();
+        lblColorSelected.setText(colorActual); 
         
-        String color;
-        
-        color = cmbColors.getSelectedItem().toString();
-        lblColorSelected.setText(color);
+        if(cont==1){
+            colores[0] = colorActual;
+            colores[1] = "";
+        }else{
+            colores[0] = colorActual; 
+            colores[1] = Colorantes; 
+        }
+
+     
+            switch(colores[0]){
+                case "Yellow": 
+                    lblChangeColor_Current.setBackground(Color.yellow);
+                    break;
+                case "Red": 
+                    lblChangeColor_Current.setBackground(Color.red);  
+                    break;
+                case "Blue": 
+                    lblChangeColor_Current.setBackground(Color.blue);   
+                    break;
+                case "Green": 
+                    lblChangeColor_Current.setBackground(Color.green);   
+                    break;
+                case "Black": 
+                    lblChangeColor_Current.setBackground(Color.black);   
+                    break;
+                case "White": 
+                    lblChangeColor_Current.setBackground(Color.white);   
+                    break;
+                case "Brown": 
+                    Color colorCafe=new Color(121, 58, 44);
+                    lblChangeColor_Current.setBackground(colorCafe);   
+                    break;
+            }
+            
+            switch(colores[1]){
+                case "Yellow": 
+                    lblChangeColor_Previous.setBackground(Color.yellow);
+                    break;
+                case "Red": 
+                    lblChangeColor_Previous.setBackground(Color.red);  
+                    break;
+                case "Blue": 
+                    lblChangeColor_Previous.setBackground(Color.blue);   
+                    break;
+                case "Green": 
+                    lblChangeColor_Previous.setBackground(Color.green);   
+                    break;
+                case "Black": 
+                    lblChangeColor_Previous.setBackground(Color.black);   
+                    break;
+                case "White": 
+                    lblChangeColor_Previous.setBackground(Color.white);   
+                    break;
+                case "Brown": 
+                    Color colorCafe=new Color(121, 58, 44);
+                    lblChangeColor_Previous.setBackground(colorCafe);   
+                    break;
+            }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -210,8 +282,8 @@ public class Colors extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblChangeColor;
-    private javax.swing.JLabel lblChangeColor1;
+    private javax.swing.JLabel lblChangeColor_Current;
+    private javax.swing.JLabel lblChangeColor_Previous;
     private javax.swing.JLabel lblColorSelected;
     // End of variables declaration//GEN-END:variables
 }
