@@ -1,4 +1,4 @@
-package entrenamiento;
+package ejercicios;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -8,7 +8,7 @@ package entrenamiento;
 
 /**
  *
- * @author Family
+ * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
 public class Cambiar_NameJPanel extends javax.swing.JFrame {
 

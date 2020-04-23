@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Family
+ * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
 public class Games {
 

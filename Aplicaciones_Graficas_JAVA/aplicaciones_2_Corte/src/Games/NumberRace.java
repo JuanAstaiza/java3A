@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Family
+ * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
 public class NumberRace extends javax.swing.JFrame {
 

@@ -1,5 +1,4 @@
-package entrenamiento;
-
+package ejercicios;
 import java.awt.Color;
 
 /*
@@ -10,21 +9,52 @@ import java.awt.Color;
 
 /**
  *
- * @author Family
+ * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
 public class Colors extends javax.swing.JFrame {
 
     /**
      * Creates new form Colors
      */
-    int cont=0;
-        String[] colores = new String[2];
+    int cont=0,Nactual_vector=1;
+        String[] colorSeleccionado = new String[2];
 
     public Colors() {
         initComponents();
+        //Añadir datos a JCombobox
+        //Yellow, Red, Blue, Green, Black, White, Brown
+        //*****************************************************************
+        //----Primera forma ARREGLO--      
+        /*String[] colores={"Yellow","Red","Blue","Green","Black","White","Brown"};
+        for (String color : colores) {
+            cmbColors.addItem(color);  
+        }*/
+        //********************************************************************
+        //----Segunda forma-- (FORMA DIRECTA)     
+        //********************************************************************  
+        /*cmbColors.addItem("Yellow");
+        cmbColors.addItem("Red");
+        cmbColors.addItem("Blue");
+        cmbColors.addItem("Green");
+        cmbColors.addItem("Black");
+        cmbColors.addItem("White");
+        cmbColors.addItem("Brown");*/
+        //********************************************************************
+        //----Tercera forma-- VECTOR  
+        /*colores=new String[100];
+        colores[0]="Yellow";
+        colores[1]="Blue";
+        colores[2]="Green";
+        colores[3]="Black";
+        colores[4]="White";
+        colores[5]="Yellow";
+        colores[6]="Brown";
         
-    }
+        for (String color: colores) {
+            cmbColors.addItem(color);  
+        }*/
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +77,7 @@ public class Colors extends javax.swing.JFrame {
         lblChangeColor_Previous = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtComboxColors = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,6 +85,7 @@ public class Colors extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setToolTipText("");
         jPanel1.setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 0));
@@ -123,13 +154,13 @@ public class Colors extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
         jLabel4.setBounds(20, 30, 230, 20);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtComboxColors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtComboxColorsActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(20, 60, 220, 30);
+        jPanel2.add(txtComboxColors);
+        txtComboxColors.setBounds(20, 60, 220, 30);
 
         jButton2.setText("Add color to combobox");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -160,20 +191,23 @@ public class Colors extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cont++;
 
-        String Colorantes=colores[0];
+        String Colorantes=colorSeleccionado[0];
         String colorActual = cmbColors.getSelectedItem().toString();
+        //getSelectedIndex() Permite mostrar la posicion 
+       /*int selecionado = cmbColors.getSelectedIndex();
+        System.out.println(selecionado);*/
         lblColorSelected.setText(colorActual); 
         
         if(cont==1){
-            colores[0] = colorActual;
-            colores[1] = "";
+            colorSeleccionado[0] = colorActual;
+            colorSeleccionado[1] = "";
         }else{
-            colores[0] = colorActual; 
-            colores[1] = Colorantes; 
+            colorSeleccionado[0] = colorActual; 
+            colorSeleccionado[1] = Colorantes; 
         }
 
      
-            switch(colores[0]){
+            switch(colorSeleccionado[0]){
                 case "Yellow": 
                     lblChangeColor_Current.setBackground(Color.yellow);
                     break;
@@ -198,7 +232,7 @@ public class Colors extends javax.swing.JFrame {
                     break;
             }
             
-            switch(colores[1]){
+            switch(colorSeleccionado[1]){
                 case "Yellow": 
                     lblChangeColor_Previous.setBackground(Color.yellow);
                     break;
@@ -226,12 +260,15 @@ public class Colors extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtComboxColorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComboxColorsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtComboxColorsActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String color_add=txtComboxColors.getText();
+        cmbColors.addItem(color_add);
+        txtComboxColors.setText("");
+        cmbColors.requestFocus();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -281,9 +318,9 @@ public class Colors extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblChangeColor_Current;
     private javax.swing.JLabel lblChangeColor_Previous;
     private javax.swing.JLabel lblColorSelected;
+    private javax.swing.JTextField txtComboxColors;
     // End of variables declaration//GEN-END:variables
 }
