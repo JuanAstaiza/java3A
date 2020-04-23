@@ -28,6 +28,9 @@ public class vectoresConsola {
         for(i=1;i<=10;i++){
             System.out.println(i);
         }*/
+        System.out.println("");
+        System.out.println("LISTADO DE NOMBRES EN UN ARRAY");
+        System.out.println("");
         
         int Numbers[] = new int[10], i=0;
         String Names[] = new String[10];

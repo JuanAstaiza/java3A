@@ -230,6 +230,9 @@ public class Colors extends javax.swing.JFrame {
                     Color colorCafe=new Color(121, 58, 44);
                     lblChangeColor_Current.setBackground(colorCafe);   
                     break;
+                case "Pink": 
+                    lblChangeColor_Current.setBackground(Color.PINK);   
+                    break;
             }
             
             switch(colorSeleccionado[1]){
@@ -254,6 +257,9 @@ public class Colors extends javax.swing.JFrame {
                 case "Brown": 
                     Color colorCafe=new Color(121, 58, 44);
                     lblChangeColor_Previous.setBackground(colorCafe);   
+                    break;
+                case "Pink": 
+                    lblChangeColor_Previous.setBackground(Color.PINK);   
                     break;
             }
         
