@@ -190,6 +190,8 @@ public class Colors extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cont++;
+        lblChangeColor_Previous.setText("");
+        lblChangeColor_Current.setText(""); 
 
         String Colorantes=colorSeleccionado[0];
         String colorActual = cmbColors.getSelectedItem().toString();
@@ -201,9 +203,11 @@ public class Colors extends javax.swing.JFrame {
         if(cont==1){
             colorSeleccionado[0] = colorActual;
             colorSeleccionado[1] = "";
+            lblChangeColor_Current.setText("");   
         }else{
             colorSeleccionado[0] = colorActual; 
             colorSeleccionado[1] = Colorantes; 
+            lblChangeColor_Current.setText("");   
         }
 
      
@@ -233,6 +237,15 @@ public class Colors extends javax.swing.JFrame {
                 case "Pink": 
                     lblChangeColor_Current.setBackground(Color.PINK);   
                     break;
+                case "":
+                    lblChangeColor_Current.setText(""); 
+                    lblChangeColor_Current.setBackground(Color.WHITE);  
+                    break;
+                default:
+                    lblChangeColor_Current.setText("Color no registrado."); 
+                    lblChangeColor_Current.setBackground(Color.WHITE);  
+                    break;
+                    
             }
             
             switch(colorSeleccionado[1]){
@@ -260,6 +273,14 @@ public class Colors extends javax.swing.JFrame {
                     break;
                 case "Pink": 
                     lblChangeColor_Previous.setBackground(Color.PINK);   
+                    break;
+                case "":
+                    lblChangeColor_Previous.setText("");   
+                    lblChangeColor_Previous.setBackground(Color.WHITE);  
+                    break;
+                default:
+                    lblChangeColor_Previous.setText("Color no registrado.");  
+                    lblChangeColor_Previous.setBackground(Color.WHITE);                    
                     break;
             }
         
