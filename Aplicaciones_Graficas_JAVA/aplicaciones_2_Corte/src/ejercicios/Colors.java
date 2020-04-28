@@ -239,7 +239,7 @@ public class Colors extends javax.swing.JFrame {
                     break;
                 case "":
                     lblChangeColor_Current.setText(""); 
-                    lblChangeColor_Current.setBackground(Color.WHITE);  
+                    //lblChangeColor_Current.setBackground(Color.WHITE);  
                     break;
                 default:
                     lblChangeColor_Current.setText("Color no registrado."); 
@@ -276,7 +276,7 @@ public class Colors extends javax.swing.JFrame {
                     break;
                 case "":
                     lblChangeColor_Previous.setText("");   
-                    lblChangeColor_Previous.setBackground(Color.WHITE);  
+                    //lblChangeColor_Previous.setBackground(Color.WHITE);  
                     break;
                 default:
                     lblChangeColor_Previous.setText("Color no registrado.");  
