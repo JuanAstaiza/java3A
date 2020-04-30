@@ -1,4 +1,6 @@
-
+package interfaz;
+import clases.Products;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -11,14 +13,16 @@ import javax.swing.JOptionPane;
  *
  * @author Family
  */
-public class Products extends javax.swing.JFrame {
+public class ProductsView extends javax.swing.JFrame {
 
     /**
      * Creates new form Products
      */
-    public Products() {
+    ArrayList<Products>  products_list= new ArrayList<Products>();    //Create an ArrayList
+
+    
+    public ProductsView() {
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -43,7 +47,7 @@ public class Products extends javax.swing.JFrame {
         txtQuantity = new javax.swing.JTextField();
         txtUnitprice = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_addProduct = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Products");
@@ -75,6 +79,7 @@ public class Products extends javax.swing.JFrame {
             }
         });
         jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(0, 204, 153));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -133,12 +138,12 @@ public class Products extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Unit price:");
 
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add new product");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_addProduct.setBackground(new java.awt.Color(153, 0, 0));
+        btn_addProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btn_addProduct.setText("Add new product");
+        btn_addProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_addProductActionPerformed(evt);
             }
         });
 
@@ -157,7 +162,7 @@ public class Products extends javax.swing.JFrame {
                     .addComponent(txtProductName)
                     .addComponent(jLabel1)
                     .addComponent(txtProductCode)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
+                    .addComponent(btn_addProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,7 +185,7 @@ public class Products extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtUnitprice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(btn_addProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -217,21 +222,65 @@ public class Products extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String productCode = txtProductCode.getText();
+    private void btn_addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addProductActionPerformed
         String productName = txtProductName.getText();
+        String productCode = txtProductCode.getText();
         String quantity = txtQuantity.getText();
         String unitPrice = txtUnitprice.getText();
         
         if(productCode.equals("") || productName.equals("") || quantity.equals("") || unitPrice.equals("")){
             JOptionPane.showMessageDialog(rootPane, "Hay campos vacios.");
         }else{
-              JOptionPane.showMessageDialog(rootPane, "No hay campos vacios.");      
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+            Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
+            products_list.add(product);
+            showData();
+            
+           // System.out.println("Object product: "+products_list);
+            
+            String matris_products[][] = new String[products_list.size()][4];
+            
+            for (int i = 0; i < products_list.size(); i++) {
+                matris_products[i][0] = Integer.toString(products_list.get(i).getCode());
+                matris_products[i][1] = products_list.get(i).getProduct_Name();
+                matris_products[i][2] = Integer.toString(products_list.get(i).getQuantity());
+                matris_products[i][3] = Float.toString(products_list.get(i).getPrice());
+            }
+            
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                matris_products,
+                new String [] {
+                    "Code", "Name", "Quantity", "Unit price"
+                }
+            ) {
+                boolean[] canEdit = new boolean [] {
+                    false, true, true, true
+                };
 
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
+          
+            
+            txtProductName.setText("");
+            txtProductCode.setText("");
+            txtQuantity.setText("");
+            txtUnitprice.setText("");
+            
+            JOptionPane.showMessageDialog(rootPane, "Producto registrado."); 
+        }
+        
+    }//GEN-LAST:event_btn_addProductActionPerformed
+
+    private void showData() {
+
+    
+    }
+    
+    
     private void txtProductCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductCodeKeyTyped
         char validar = evt.getKeyChar();
         
@@ -289,26 +338,27 @@ public class Products extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Products.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Products.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Products.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Products.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Products().setVisible(true);
+                new ProductsView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_addProduct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

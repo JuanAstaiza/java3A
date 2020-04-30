@@ -18,7 +18,7 @@ public class Number_race extends javax.swing.JFrame {
     /**
      * Creates new form Number_race
      */
-    int cont=1;
+    int jugador=1;
     int Num_jugadores,nivelSeleccionado;
     String numeroJugadores;
     
@@ -453,8 +453,8 @@ public class Number_race extends javax.swing.JFrame {
         }else{ //advanced
             nivelSeleccionado=200;
         }
-        System.out.println("jugadores: "+numeroJugadores);
-        System.out.println("nivel: "+nivelSeleccionado);
+        //System.out.println("Jugadores: "+numeroJugadores);
+        //System.out.println("Nivel: "+nivelSeleccionado);
        
     }//GEN-LAST:event_btn_startGameActionPerformed
 
@@ -554,12 +554,17 @@ public class Number_race extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_tryAgainActionPerformed
 
     private void btn_playPlayerNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playPlayerNoActionPerformed
-        cont++;
-        btn_playPlayerNo.setText("Play - Player "+cont);
-        if (cont==Integer.parseInt(numeroJugadores)) {
-            cont=0;
+        jugador++;
+        btn_playPlayerNo.setText("Play - Player "+jugador);
+        if (jugador>=Integer.parseInt(numeroJugadores)) {
+            jugador=0;
         }
-
+        System.out.println("ahora: "+jugador);
+        System.out.println("antes: "+Integer.toString(jugador-1)); 
+        lbl_turnPlayer.setText(Integer.toString(jugador-1));
+     //   lbl_advancedPositions.setText("");
+     //   lbl_missingPositions.setText("");
+     //   lbl_returns.setText("");
     }//GEN-LAST:event_btn_playPlayerNoActionPerformed
 
     /**

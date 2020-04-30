@@ -10,56 +10,51 @@ package clases;
  * @author juanc
  */
 public class Products {
-    String Product_Name;
-    int Code,Quantity;
-    float Price;
+    //Products Data model
+    String product_Name;
+    int code,quantity;
+    float price;
 
-    public Products(String Product_Name, int Code, int Quantity, float Price) {
-        this.Product_Name = Product_Name;
-        this.Code = Code;
-        this.Quantity = Quantity;
-        this.Price = Price;
+    public Products(String product_Name, int code, int quantity, float price) {
+        this.product_Name = product_Name;
+        this.code = code;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     public String getProduct_Name() {
-        return Product_Name;
+        return product_Name;
     }
-
-    public void setProduct_Name(String Product_Name) {
-        this.Product_Name = Product_Name;
+    
+    public void setProduct_Name(String product_Name) {
+        this.product_Name = product_Name;
     }
 
     public int getCode() {
-        return Code;
+        return code;
     }
 
-    public void setCode(int Code) {
-        this.Code = Code;
+    public void setCode(int code) {
+        this.code = code;
     }
-
+    
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public float getPrice() {
-        return Price;
+        return price;
     }
 
-    public void setPrice(float Price) {
-        this.Price = Price;
+    public void setPrice(float price) {
+        this.price = price;
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+
+   
 }
