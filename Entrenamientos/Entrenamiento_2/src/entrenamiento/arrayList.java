@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 // CLASE DE ARRAY LIST
 
-public class Market {
+public class arrayList {
 
     public static void main(String[] args) {
         
-        System.out.println("****  ARRAY LIST ***************");
+        System.out.println("***************  ARRAY LIST ***************");
         System.out.println("");
         
         ArrayList<String> cars = new ArrayList<String>();

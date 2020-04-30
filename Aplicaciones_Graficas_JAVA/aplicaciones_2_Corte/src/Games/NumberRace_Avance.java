@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author JUAN CARLOS ASTAIZA ORDOÑEZ
  */
-public class NumberRace extends javax.swing.JFrame {
+public class NumberRace_Avance extends javax.swing.JFrame {
 
     /**
-     * Creates new form NumberRace
+     * Creates new form NumberRace_Avance
      */
     int counter = 0;
     
-    public NumberRace() {
+    public NumberRace_Avance() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/icons/car.png")).getImage());
     }
@@ -126,7 +126,7 @@ public class NumberRace extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        //Dices
+        //Dices        
         Random D = new Random();
         int d1 = 0, d2 = 0;
         
@@ -135,6 +135,7 @@ public class NumberRace extends javax.swing.JFrame {
         
         counter = counter + (d1 + d2);
         lblCounter.setText(Integer.toString(counter));
+ 
         
         //lblD1.setText(Integer.toString(d1));
         //lblD2.setText(Integer.toString(d2));
@@ -217,20 +218,21 @@ public class NumberRace extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NumberRace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NumberRace_Avance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NumberRace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NumberRace_Avance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NumberRace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NumberRace_Avance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NumberRace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NumberRace_Avance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NumberRace().setVisible(true);
+                new NumberRace_Avance().setVisible(true);
             }
         });
     }
