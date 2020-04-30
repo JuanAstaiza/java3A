@@ -372,7 +372,7 @@ public class Number_race extends javax.swing.JFrame {
                     .addComponent(jpanelWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_aboutOf, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_tryAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,9 +409,7 @@ public class Number_race extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jpanelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,30 +422,40 @@ public class Number_race extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startGameActionPerformed
-        //Botones y jComboBox a editables
-        btn_tryAgain.setEnabled(true);
-        btn_aboutOf.setEnabled(true);
-        btn_playPlayerNo.setEnabled(true);
-        
-        //Botones y jComboBox no editables. 
-        cmb_Level.setEnabled(false);
-        cmb_numberPlayers.setEnabled(false);
-        btn_startGame.setEnabled(false);
-        
+        //VALIDAMOS LA CANTIDAD DE JUGADORES HA SIDO SELECCIONADO CORRECTAMENTE
         numeroJugadores= cmb_numberPlayers.getSelectedItem().toString();
-        int nivel = cmb_Level.getSelectedIndex();
-      
+        if(numeroJugadores.equals("Seleccione una opción")){
+           JOptionPane.showMessageDialog(null, "Seleccione la cantidad de jugadores.");
+        }else if(numeroJugadores.equals("1")){
+           JOptionPane.showMessageDialog(null, "Cantidad de jugadores no permitida. Debe ser mayor que 1.");        
+        }else{
+            //Botones y jComboBox a editables
+            btn_tryAgain.setEnabled(true);
+            btn_aboutOf.setEnabled(true);
+            btn_playPlayerNo.setEnabled(true);
 
-        if(nivel==0){ //basic
+            //Botones y jComboBox no editables. 
+            cmb_Level.setEnabled(false);
+            cmb_numberPlayers.setEnabled(false);
+            btn_startGame.setEnabled(false);
+            
+        
+
+            btn_playPlayerNo.setText("Play - Player 1");
+  
+        }
+            
+        int nivel = cmb_Level.getSelectedIndex();
+              if(nivel==0){ //basic
             nivelSeleccionado=50;
         }else if(nivel==1){ //intermediate
             nivelSeleccionado=100;
         }else{ //advanced
             nivelSeleccionado=200;
         }
-        
-        btn_playPlayerNo.setText("Play - Player 1");
-  
+        System.out.println("jugadores: "+numeroJugadores);
+        System.out.println("nivel: "+nivelSeleccionado);
+       
     }//GEN-LAST:event_btn_startGameActionPerformed
 
     private void btn_configParamsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configParamsActionPerformed
@@ -475,6 +483,7 @@ public class Number_race extends javax.swing.JFrame {
                                     }else{
                                         n_bandera2=true;
                                         //PERMITE AÑADIR DATOS AL ARRAYLIST
+                                        jugadores.add("Seleccione una opción");//0
                                         for (int i = 1; i <=Num_jugadores ; i++) {
                                             jugadores.add(Integer.toString(i));
                                         }
@@ -500,9 +509,10 @@ public class Number_race extends javax.swing.JFrame {
                         cmb_numberPlayers.setEnabled(true);
                         cmb_Level.setEnabled(true);
                         btn_configParams.setEnabled(false);
-                        jugadores.add("1");//0
-                        jugadores.add("2");//1
-                        jugadores.add("3");//2
+                        jugadores.add("Seleccione una opción");//0
+                        jugadores.add("1");//1
+                        jugadores.add("2");//2
+                        jugadores.add("3");//3
                         for (String jugador : jugadores) {
                             cmb_numberPlayers.addItem(jugador);  
                         }
@@ -518,9 +528,10 @@ public class Number_race extends javax.swing.JFrame {
                         cmb_numberPlayers.setEnabled(true);
                         cmb_Level.setEnabled(true);
                         btn_configParams.setEnabled(false);
-                        jugadores.add("1");//0
-                        jugadores.add("2");//1
-                        jugadores.add("3");//2
+                        jugadores.add("Seleccione una opción");//0
+                        jugadores.add("1");//1
+                        jugadores.add("2");//2
+                        jugadores.add("3");//3
                         for (String jugador : jugadores) {
                             cmb_numberPlayers.addItem(jugador);  
                         }
@@ -548,8 +559,6 @@ public class Number_race extends javax.swing.JFrame {
         if (cont==Integer.parseInt(numeroJugadores)) {
             cont=0;
         }
-        
-        
 
     }//GEN-LAST:event_btn_playPlayerNoActionPerformed
 
