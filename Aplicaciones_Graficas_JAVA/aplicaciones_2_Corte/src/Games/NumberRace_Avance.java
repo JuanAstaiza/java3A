@@ -140,6 +140,18 @@ public class NumberRace_Avance extends javax.swing.JFrame {
         //lblD1.setText(Integer.toString(d1));
         //lblD2.setText(Integer.toString(d2));
         
+        //MEJORA MOSTRAR DADOS
+        for (int i = 1; i <= 6; i++) {
+            System.out.println(i);
+            if(i==d1){
+                lblD1.setIcon(new ImageIcon(getClass().getResource("/images/"+i+".png")));
+            }
+            if(i==d2){
+                lblD2.setIcon(new ImageIcon(getClass().getResource("/images/"+i+".png")));
+            }             
+        }
+      /* 
+       // MOSTRAR DADOS ANTIGUO
         switch(d1){
             case 1:
                 lblD1.setIcon(new ImageIcon(getClass().getResource("/images/1.png")));
@@ -185,13 +197,14 @@ public class NumberRace_Avance extends javax.swing.JFrame {
             default:
                 break;
         }
-        
+        */
         if(d1 == 1 && d2 == 1){
             JOptionPane.showMessageDialog(null, "::: YOU WIN :::");
         }  
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        counter=0;
         // TODO add your handling code here:
         //lblD1.setText("?");
         //lblD2.setText("?");

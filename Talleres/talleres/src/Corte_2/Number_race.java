@@ -6,6 +6,7 @@
 package Corte_2;
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -18,10 +19,9 @@ public class Number_race extends javax.swing.JFrame {
     /**
      * Creates new form Number_race
      */
-    int jugador=1;
-    int Num_jugadores,nivelSeleccionado;
+    int Num_jugadores,nivelSeleccionado,jugador=1,counter = 0;
     String numeroJugadores;
-    
+
     ArrayList<String> jugadores = new ArrayList<String>();
     
 
@@ -555,16 +555,51 @@ public class Number_race extends javax.swing.JFrame {
 
     private void btn_playPlayerNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playPlayerNoActionPerformed
         jugador++;
-        btn_playPlayerNo.setText("Play - Player "+jugador);
-        if (jugador>=Integer.parseInt(numeroJugadores)) {
-            jugador=0;
+        btn_playPlayerNo.setText("Play - Player "+jugador); //Turno del jugador que lanza dados.(Botón)
+        
+     
+
+        Random dado = new Random();
+        int d1 = 0, d2 = 0;
+        
+        d1 = (int)(dado.nextDouble()* 6 + 1);
+        d2 = (int)(dado.nextDouble()* 6 + 1);
+        
+        counter = counter + (d1 + d2);
+        
+        lbl_advancedPositions.setText(Integer.toString(counter));
+        lbl_missingPositions.setText(Integer.toString(nivelSeleccionado-counter));
+ 
+        for (int i = 1; i <= 6; i++) {
+            System.out.println(i);
+            if(i==d1){
+                lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/"+i+".png")));
+            }
+            if(i==d2){
+                lblD2.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/"+i+".png")));
+            }             
         }
-        System.out.println("ahora: "+jugador);
-        System.out.println("antes: "+Integer.toString(jugador-1)); 
-        lbl_turnPlayer.setText(Integer.toString(jugador-1));
+        
+        
+        String jugadorAnterior=Integer.toString(jugador-1);
+        
+        //validar cuando el jugador es 1, el jugador a mostrar es ultimo jugador en lbl_turnPlayer
+        if(jugador==1){
+           jugadorAnterior="5";
+        }
+        
+
+        lbl_turnPlayer.setText(jugadorAnterior);
      //   lbl_advancedPositions.setText("");
      //   lbl_missingPositions.setText("");
      //   lbl_returns.setText("");
+     
+        //Validación: Cuando el jugador es el ultimo  del turno. Repite nuevamente los turnos.
+     if(jugador==Integer.parseInt(numeroJugadores)){
+            jugador=0;
+        }
+     counter=0;
+     
     }//GEN-LAST:event_btn_playPlayerNoActionPerformed
 
     /**
