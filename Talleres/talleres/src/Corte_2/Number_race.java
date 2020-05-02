@@ -451,7 +451,9 @@ public class Number_race extends javax.swing.JFrame {
     private void btn_startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startGameActionPerformed
         //VALIDAMOS LA CANTIDAD DE JUGADORES HA SIDO SELECCIONADO CORRECTAMENTE
         numeroJugadores= cmb_numberPlayers.getSelectedItem().toString();
-        System.out.println(numeroJugadores);
+        
+        System.out.println("CANTIDAD DE JUGADORES: "+numeroJugadores);
+        
         if(numeroJugadores.equals("Seleccione una opción")){
            JOptionPane.showMessageDialog(null, "Seleccione la cantidad de jugadores.");
         }else if(numeroJugadores.equals("1")){
@@ -465,11 +467,16 @@ public class Number_race extends javax.swing.JFrame {
             acumuladorPares.add(0); 
             acumuladorChocado.add(0);
         }
-            System.out.println(jugadores);
-            System.out.println(posicionesAvanzadas);
-            System.out.println(acumuladorChocado);
-            System.out.println(acumuladorPares);
-
+            System.out.println("");
+            System.out.println("*********************************************+");
+            System.out.println("ARRAY LIST");
+            System.out.println("*********************************************+");
+            System.out.println("JUGADORES: "+jugadores);
+            System.out.println("POSICIONES AVANZADAS: "+posicionesAvanzadas);
+            System.out.println("ACUMULADOR CHOCADO: "+acumuladorChocado);
+            System.out.println("ACUMULADOR PARES: "+acumuladorPares);
+            System.out.println("*********************************************");
+            System.out.println("");
             //Botones y jComboBox a editables
             btn_tryAgain.setEnabled(true);
             btn_aboutOf.setEnabled(true);
@@ -728,7 +735,7 @@ public class Number_race extends javax.swing.JFrame {
                 antes, regresa a salida, es decir inicia nuevamente, y el que llegó, queda esa posición. */
                 if(posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1)==sumaDados){
                     System.out.println("[choque *]");
-                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" ACUMULÓ:"+sumaDados+" y ha hecho un [choque *] al JUGADOR "+Jactual+" que ACUMULÓ: "+posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1));          
+                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" ACUMULÓ: "+sumaDados+" y ha hecho un [choque *] al JUGADOR "+Jactual+" que ACUMULÓ: "+posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1));          
                     posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior)-1, 0);
                     int suma_acumuladorChocado=acumuladorChocado.get(Integer.parseInt(jugadorAnterior)-1)+1; //Suma la cantidad de chocados generados por el jugador
                     acumuladorChocado.set(Integer.parseInt(jugadorAnterior)-1, suma_acumuladorChocado);
@@ -827,16 +834,16 @@ public class Number_race extends javax.swing.JFrame {
                 + "y asi sucesivamente\ncon los jugadores siguientes.\n\n"
                 + "Los datos a mostrar son:\n\n"
                 + "1. Turn player (Jugador que lanzó los dados)\n" +
-                    "2. Advanced positions (Posiciones que ha avanzado)\n" +
-                    "3. Missing positions (Posiciones que faltan a Meta)\n" +
-                    "4. Returns (Regresos a salida cuando es chocado)*\n\n"
+                  "2. Advanced positions (Posiciones que ha avanzado)\n" +
+                  "3. Missing positions (Posiciones que faltan a Meta)\n" +
+                  "4. Returns (Regresos a salida cuando es chocado)*\n\n"
                 + "OBSERVACIÓN:\n1. Si un jugador llega a la posición donde hay otro jugador [choque *], el que estaba" +
-                    "antes, regresa a salida,\n es decir inicia nuevamente, y el que llegó, queda esa posición.\n"
+                  "antes, regresa a salida,\n es decir inicia nuevamente, y el que llegó, queda esa posición.\n"
                 + "2. Si un jugador obtiene par de unos (1, 1) al lanzar los dados, podrá avanzar" +
-                    "simultáneamente veintiuna (21) posiciones,\n siempre que no exceda el límite a la meta.\n\n"
+                  "simultáneamente veintiuna (21) posiciones,\n siempre que no exceda el límite a la meta.\n\n"
                 + "GANADOR: \n1. Si un jugador obtiene 3 pares consecutivos, GANA la partida, la cantidad de pares se visualiza en Panel [Pairs].\n"
                 + "2. El primer jugador que llegue a la meta es el ganador. Tenga en cuenta que para que un\n" +
-                    "jugador gane, debe llegar a la meta con el VALOR exacto de posiciones hacia esta.\n", "Help", JOptionPane.INFORMATION_MESSAGE);
+                  "jugador gane, debe llegar a la meta con el VALOR exacto de posiciones hacia esta.\n", "Help", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_btn_HelpActionPerformed
 
