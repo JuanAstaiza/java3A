@@ -485,6 +485,7 @@ public class Number_race extends javax.swing.JFrame {
             btn_playPlayerNo.setText("Play - Player 1");
             posicionesAvanzadas.add(0);
   
+            //Almacenamos el nivel seleccionado en una variable nivel
             int nivel = cmb_Level.getSelectedIndex();
             if(nivel==0){ //basic
                 nivelSeleccionado=50;
