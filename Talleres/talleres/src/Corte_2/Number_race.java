@@ -72,9 +72,11 @@ public class Number_race extends javax.swing.JFrame {
         btn_playPlayerNo = new javax.swing.JButton();
         lblD1 = new javax.swing.JLabel();
         lblD2 = new javax.swing.JLabel();
+        lbl_PlayZone = new javax.swing.JTextField();
         btn_configParams = new javax.swing.JButton();
         btn_aboutOf = new javax.swing.JButton();
         btn_tryAgain = new javax.swing.JButton();
+        btn_Help = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Number race");
@@ -160,12 +162,12 @@ public class Number_race extends javax.swing.JFrame {
         );
         jpanelPairsLayout.setVerticalGroup(
             jpanelPairsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 182, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jpanelPairsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpanelPairsLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 40, Short.MAX_VALUE)
                     .addComponent(lblPairs, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 41, Short.MAX_VALUE)))
         );
 
         jpanel_scoresZone.setBackground(new java.awt.Color(102, 255, 102));
@@ -267,12 +269,12 @@ public class Number_race extends javax.swing.JFrame {
         );
         jpanelWinnerLayout.setVerticalGroup(
             jpanelWinnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 182, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jpanelWinnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpanelWinnerLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 40, Short.MAX_VALUE)
                     .addComponent(lblWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 41, Short.MAX_VALUE)))
         );
 
         jpanel_playZone2.setBackground(new java.awt.Color(102, 255, 102));
@@ -297,6 +299,11 @@ public class Number_race extends javax.swing.JFrame {
         lblD2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte2/question.png"))); // NOI18N
 
+        lbl_PlayZone.setEditable(false);
+        lbl_PlayZone.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lbl_PlayZone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lbl_PlayZone.setText("             ");
+
         javax.swing.GroupLayout jpanel_playZone2Layout = new javax.swing.GroupLayout(jpanel_playZone2);
         jpanel_playZone2.setLayout(jpanel_playZone2Layout);
         jpanel_playZone2Layout.setHorizontalGroup(
@@ -310,11 +317,17 @@ public class Number_race extends javax.swing.JFrame {
                         .addComponent(lblD2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_playPlayerNo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_playZone2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_PlayZone, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
         jpanel_playZone2Layout.setVerticalGroup(
             jpanel_playZone2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_playZone2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lbl_PlayZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpanel_playZone2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblD2, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
@@ -354,6 +367,14 @@ public class Number_race extends javax.swing.JFrame {
             }
         });
 
+        btn_Help.setBackground(new java.awt.Color(51, 255, 204));
+        btn_Help.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte2/help.png"))); // NOI18N
+        btn_Help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_HelpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpanelPrincipalLayout = new javax.swing.GroupLayout(jpanelPrincipal);
         jpanelPrincipal.setLayout(jpanelPrincipalLayout);
         jpanelPrincipalLayout.setHorizontalGroup(
@@ -361,32 +382,38 @@ public class Number_race extends javax.swing.JFrame {
             .addGroup(jpanelPrincipalLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpanel_configZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanel_playZone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpanelPairs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanel_scoresZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_configParams, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_aboutOf, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_tryAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                    .addGroup(jpanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(139, 139, 139)
+                        .addComponent(btn_Help, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelPrincipalLayout.createSequentialGroup()
+                        .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jpanel_configZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jpanel_playZone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jpanelPairs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jpanel_scoresZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jpanelWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_aboutOf, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_tryAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_configParams, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jpanelPrincipalLayout.setVerticalGroup(
             jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jpanelPrincipalLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btn_Help, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelPrincipalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jpanel_scoresZone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jpanel_configZone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -399,11 +426,11 @@ public class Number_race extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_aboutOf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpanelWinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanel_playZone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelPairs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
+                .addGroup(jpanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpanel_playZone2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpanelPairs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpanelWinner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -414,9 +441,7 @@ public class Number_race extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jpanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -503,6 +528,7 @@ public class Number_race extends javax.swing.JFrame {
         lbl_returns.setText("#");
         lblPairs.setText("0");
         lblWinner.setText("?");
+        lbl_PlayZone.setText("");
         
         //MOSTRAR IMAGEN question EN VES DE DADOS
         lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
@@ -640,6 +666,7 @@ public class Number_race extends javax.swing.JFrame {
         lbl_returns.setText("#");
         lblPairs.setText("0");
         lblWinner.setText("?");
+        lbl_PlayZone.setText("");
         
         //MOSTRAR IMAGEN question EN VES DE DADOS
         lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
@@ -649,6 +676,7 @@ public class Number_race extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_tryAgainActionPerformed
 
     private void btn_playPlayerNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playPlayerNoActionPerformed
+        lbl_PlayZone.setText("");
         cont++;
         jugador++;
         
@@ -683,10 +711,12 @@ public class Number_race extends javax.swing.JFrame {
         if(cont<=Integer.parseInt(numeroJugadores)){
             
             if(d1==1 && d2==1){
+                lbl_PlayZone.setText("PAR (1,1)");
                 sumaDados=21;
                 JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par  de unos (1,1) podrá avanzar\n" +
                     "simultáneamente Veintiuno  (21) posiciones.");         
             }else if(d1==d2){
+                lbl_PlayZone.setText("PAR ("+d1+","+d2+")");
                 acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
                 acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares); 
                 JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par.");   
@@ -709,6 +739,7 @@ public class Number_race extends javax.swing.JFrame {
             suma_TotalDados= posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior))+sumaDados;
             //VALIDACIONES GENERALES DEL JUEGO
             if(d1==1 && d2==1){
+                lbl_PlayZone.setText("PAR (1,1)");
                 int sumaDatos_Limite=posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior))+21;
                 if(sumaDatos_Limite<nivelSeleccionado){
                     sumaDados=21;   
@@ -722,9 +753,10 @@ public class Number_race extends javax.swing.JFrame {
                 acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
                 acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares); 
             }else if(d1==d2){
+                lbl_PlayZone.setText("PAR ("+d1+","+d2+")");
                 acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
                 acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares);
-                 JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par.");   
+                JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par.");   
             }   
             
             if(acumuladorTotalPares==3){
@@ -782,6 +814,31 @@ public class Number_race extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btn_playPlayerNoActionPerformed
 
+    private void btn_HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HelpActionPerformed
+        JOptionPane.showMessageDialog(null,"HELP:\n\n"
+                + "[Config params]:\n La cantidad de jugadores que se despliegan en el Combobox, puede ser modificada en"
+                + "la interfaz que abrirá este botón.\n"
+                + "[Try again]: Botón para reiniciar el juego.\n"
+                + "[About of]: Se abre nueva ventana con información del desarrollador.\n"
+                + "[Winner]: Se muestra el número del GANADOR de la partida.\n\n"
+                + "[Lógica del juego]:\nAl presionar el botón Start game, se habilita la zona de juego.Por defecto, inicia el jugador Nro. 1. Para tirar"
+                + "los dados\nel jugador debe presionar el botón Play - Player #.Hecho esto se mostrara los datos en Scores zone"
+                + "y asi sucesivamente\ncon los jugadores siguientes.\n\n"
+                + "Los datos a mostrar son:\n\n"
+                + "1. Turn player (Jugador que lanzó los dados)\n" +
+                    "2. Advanced positions (Posiciones que ha avanzado)\n" +
+                    "3. Missing positions (Posiciones que faltan a Meta)\n" +
+                    "4. Returns (Regresos a salida cuando es chocado)*\n\n"
+                + "OBSERVACIÓN:\n1. Si un jugador llega a la posición donde hay otro jugador [choque *], el que estaba" +
+                    "antes, regresa a salida,\n es decir inicia nuevamente, y el que llegó, queda esa posición.\n"
+                + "2. Si un jugador obtiene par de unos (1, 1) al lanzar los dados, podrá avanzar" +
+                    "simultáneamente veintiuna (21) posiciones,\n siempre que no exceda el límite a la meta.\n\n"
+                + "GANADOR: \n1. Si un jugador obtiene 3 pares consecutivos, GANA la partida, la cantidad de pares se visualiza en Panel [Pairs].\n"
+                + "2. El primer jugador que llegue a la meta es el ganador. Tenga en cuenta que para que un\n" +
+                    "jugador gane, debe llegar a la meta con el VALOR exacto de posiciones hacia esta.\n", "Help", JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_btn_HelpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -818,6 +875,7 @@ public class Number_race extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Help;
     private javax.swing.JButton btn_aboutOf;
     private javax.swing.JButton btn_configParams;
     private javax.swing.JButton btn_playPlayerNo;
@@ -842,6 +900,7 @@ public class Number_race extends javax.swing.JFrame {
     private javax.swing.JLabel lblD2;
     private javax.swing.JLabel lblPairs;
     private javax.swing.JLabel lblWinner;
+    private javax.swing.JTextField lbl_PlayZone;
     private javax.swing.JLabel lbl_advancedPositions;
     private javax.swing.JLabel lbl_missingPositions;
     private javax.swing.JLabel lbl_returns;
