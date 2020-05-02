@@ -19,18 +19,20 @@ public class Number_race extends javax.swing.JFrame {
     /**
      * Creates new form Number_race
      */
-    int Num_jugadores,nivelSeleccionado,jugador=1,counter = 0;
+    int Num_jugadores=0,nivelSeleccionado=0,jugador=1,sumaDados = 0,cont=0,acumuladorTotalPares=0,suma_TotalDados=0;
     String numeroJugadores;
 
+    ArrayList<String> jugadoresConfig = new ArrayList<String>();
     ArrayList<String> jugadores = new ArrayList<String>();
-    
+    ArrayList<Integer>  posicionesAvanzadas = new ArrayList<Integer>();
+    ArrayList<Integer>  acumuladorPares = new ArrayList<Integer>();
+    ArrayList<Integer>  acumuladorChocado = new ArrayList<Integer>();
+
 
     public Number_race() {
         initComponents();
         //No permitimos cambiar tamaño
         setResizable(false);
-        //Centramos el JFrame en nuestra Pantalla
-        setLocationRelativeTo(null);
         //Cambiar el icono a un frame
         setIconImage(new ImageIcon(getClass().getResource("car.png")).getImage());
        
@@ -335,7 +337,6 @@ public class Number_race extends javax.swing.JFrame {
         btn_aboutOf.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btn_aboutOf.setForeground(new java.awt.Color(255, 255, 255));
         btn_aboutOf.setText("About of ");
-        btn_aboutOf.setEnabled(false);
         btn_aboutOf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aboutOfActionPerformed(evt);
@@ -419,16 +420,31 @@ public class Number_race extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startGameActionPerformed
         //VALIDAMOS LA CANTIDAD DE JUGADORES HA SIDO SELECCIONADO CORRECTAMENTE
         numeroJugadores= cmb_numberPlayers.getSelectedItem().toString();
+        System.out.println(numeroJugadores);
         if(numeroJugadores.equals("Seleccione una opción")){
            JOptionPane.showMessageDialog(null, "Seleccione la cantidad de jugadores.");
         }else if(numeroJugadores.equals("1")){
            JOptionPane.showMessageDialog(null, "Cantidad de jugadores no permitida. Debe ser mayor que 1.");        
         }else{
+            
+        for (int i = 0; i <=Integer.parseInt(numeroJugadores); i++) {
+            //Añadimos  jugadores al ARRAYLIST seleccionado por el usuario 
+            jugadores.add(Integer.toString(i));
+            //Generamos datos de acuerdo a la cantidad de JUGADORES para ARRAYLIST Acumulador de Pares y Chocado
+            acumuladorPares.add(0); 
+            acumuladorChocado.add(0);
+        }
+            System.out.println(jugadores);
+            System.out.println(posicionesAvanzadas);
+            System.out.println(acumuladorChocado);
+            System.out.println(acumuladorPares);
+
             //Botones y jComboBox a editables
             btn_tryAgain.setEnabled(true);
             btn_aboutOf.setEnabled(true);
@@ -442,23 +458,57 @@ public class Number_race extends javax.swing.JFrame {
         
 
             btn_playPlayerNo.setText("Play - Player 1");
+            posicionesAvanzadas.add(0);
   
+            int nivel = cmb_Level.getSelectedIndex();
+            if(nivel==0){ //basic
+                nivelSeleccionado=50;
+            }else if(nivel==1){ //intermediate
+                nivelSeleccionado=100;
+            }else{ //advanced
+                nivelSeleccionado=200;
+            }
         }
-            
-        int nivel = cmb_Level.getSelectedIndex();
-              if(nivel==0){ //basic
-            nivelSeleccionado=50;
-        }else if(nivel==1){ //intermediate
-            nivelSeleccionado=100;
-        }else{ //advanced
-            nivelSeleccionado=200;
-        }
+           
         //System.out.println("Jugadores: "+numeroJugadores);
         //System.out.println("Nivel: "+nivelSeleccionado);
        
     }//GEN-LAST:event_btn_startGameActionPerformed
 
     private void btn_configParamsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configParamsActionPerformed
+        //INICIAR VARIABLES EN TIPO ENTERO (0) Y STRING ("")       
+        Num_jugadores=0;
+        nivelSeleccionado=0;
+        jugador=1;
+        sumaDados = 0;
+        cont=0;
+        acumuladorTotalPares=0;
+        suma_TotalDados=0;
+        numeroJugadores="";   
+        
+        //LIMPIAR EL JCOMBOBOX
+        cmb_numberPlayers.removeAllItems();
+        //LIMPIAR TODOS LOS ARRAYLIST
+        jugadoresConfig.clear();
+       jugadores.clear();
+        posicionesAvanzadas.clear();
+        acumuladorPares.clear();
+        acumuladorChocado.clear();
+
+        //HABILITAR Y DESABILITAR BOTONES
+   
+        lbl_turnPlayer.setText("#"); //Muestra (Jugador que lanzó los dados)
+        lbl_advancedPositions.setText("#"); // Posiciones que ha avanzado el Jugador que lanzó los dados
+        lbl_missingPositions.setText("#"); // Posiciones que faltan a Meta  el Jugador que lanzó los dados
+        lbl_returns.setText("#");
+        lblPairs.setText("0");
+        lblWinner.setText("?");
+        
+        //MOSTRAR IMAGEN question EN VES DE DADOS
+        lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
+        lblD2.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
+
+        
         String[] options = {"Si", "No"};
         boolean no=false;
         do{   
@@ -483,12 +533,13 @@ public class Number_race extends javax.swing.JFrame {
                                     }else{
                                         n_bandera2=true;
                                         //PERMITE AÑADIR DATOS AL ARRAYLIST
-                                        jugadores.add("Seleccione una opción");//0
+                                        jugadoresConfig.add("Seleccione una opción");//0
                                         for (int i = 1; i <=Num_jugadores ; i++) {
-                                            jugadores.add(Integer.toString(i));
+                                            //Añadimos  jugadores al ARRAYLIST seleccionado por el usuario 
+                                            jugadoresConfig.add(Integer.toString(i));
                                         }
                                         //PERMITE AÑADIR DATOS AL JCOMBOBOX
-                                        for (String jugador : jugadores) {
+                                        for (String jugador : jugadoresConfig) {
                                             cmb_numberPlayers.addItem(jugador);  
                                         }
                                         btn_startGame.setEnabled(true);
@@ -520,7 +571,7 @@ public class Number_race extends javax.swing.JFrame {
                     break;
                 case 1: //NO
                     
-                    int respNo = JOptionPane.showConfirmDialog(null, "¿Esta seguro que NO desea agregar el número de jugadores que desean jugar?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+                    int respNo = JOptionPane.showConfirmDialog(null, "¿Está seguro que NO desea agregar el número de jugadores que desean jugar?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
                 
                     if(respNo==0){
                         no=true;
@@ -546,32 +597,74 @@ public class Number_race extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_configParamsActionPerformed
 
     private void btn_aboutOfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aboutOfActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "\nAUTORES:\n"+
+        "JUAN CARLOS ASTAIZA ORDOÑEZ\n" +
+        "\n" +
+        "PRESENTADO A:	\n" +
+        "JOAN CARLOS AYALA BENAVIDES\n" +
+        "\n" +
+        "		\n" +
+        "UNIVERSIDAD CENTRO DE ESTUDIOS MARIA GORETTI (CESMAG)\n" +
+        "PROGRAMACIÓN EN ENTORNOS GRÁFICOS\n" +
+        "PASTO - NARIÑO\n" +
+        "2020", "About of", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_aboutOfActionPerformed
 
     private void btn_tryAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tryAgainActionPerformed
-        // TODO add your handling code here:
+        //INICIAR VARIABLES EN TIPO ENTERO (0) Y STRING ("")       
+        Num_jugadores=0;
+        nivelSeleccionado=0;
+        jugador=1;
+        sumaDados = 0;
+        cont=0;
+        acumuladorTotalPares=0;
+        suma_TotalDados=0;
+        numeroJugadores="";     
+
+        //LIMPIAR TODOS LOS ARRAYLIST   
+        jugadores.clear();
+        posicionesAvanzadas.clear();
+        acumuladorPares.clear();
+        acumuladorChocado.clear();
+
+        //HABILITAR Y DESABILITAR BOTONES
+        btn_startGame.setEnabled(true);
+        cmb_numberPlayers.setEnabled(false);
+        cmb_Level.setEnabled(false);
+        btn_configParams.setEnabled(false);
+        btn_playPlayerNo.setEnabled(false);
+    
+        lbl_turnPlayer.setText("#"); //Muestra (Jugador que lanzó los dados)
+        lbl_advancedPositions.setText("#"); // Posiciones que ha avanzado el Jugador que lanzó los dados
+        lbl_missingPositions.setText("#"); // Posiciones que faltan a Meta  el Jugador que lanzó los dados
+        lbl_returns.setText("#");
+        lblPairs.setText("0");
+        lblWinner.setText("?");
+        
+        //MOSTRAR IMAGEN question EN VES DE DADOS
+        lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
+        lblD2.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/question.png")));
+
+        
     }//GEN-LAST:event_btn_tryAgainActionPerformed
 
     private void btn_playPlayerNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playPlayerNoActionPerformed
+        cont++;
         jugador++;
+        
         btn_playPlayerNo.setText("Play - Player "+jugador); //Turno del jugador que lanza dados.(Botón)
         
-     
-
+        //Numeros aleatorios
         Random dado = new Random();
         int d1 = 0, d2 = 0;
         
         d1 = (int)(dado.nextDouble()* 6 + 1);
-        d2 = (int)(dado.nextDouble()* 6 + 1);
+        d2 = (int)(dado.nextDouble()* 6 + 1);        
         
-        counter = counter + (d1 + d2);
-        
-        lbl_advancedPositions.setText(Integer.toString(counter));
-        lbl_missingPositions.setText(Integer.toString(nivelSeleccionado-counter));
- 
-        for (int i = 1; i <= 6; i++) {
-            System.out.println(i);
+        sumaDados = d1 + d2;    //Calcula datos que ha sacado el jugador    
+     
+        //Mostrar Datos
+        for (int i = 1; i<=6; i++) {
             if(i==d1){
                 lblD1.setIcon(new ImageIcon(getClass().getResource("/imagesCorte2/"+i+".png")));
             }
@@ -580,26 +673,113 @@ public class Number_race extends javax.swing.JFrame {
             }             
         }
         
-        
+        //validar cuando el jugador es 1, el jugador a mostrar es ultimo jugador en lbl_turnPlayer     
         String jugadorAnterior=Integer.toString(jugador-1);
-        
-        //validar cuando el jugador es 1, el jugador a mostrar es ultimo jugador en lbl_turnPlayer
         if(jugador==1){
-           jugadorAnterior="5";
+            jugadorAnterior=numeroJugadores;
         }
+       int Jactual=Integer.parseInt(jugadorAnterior)-1;
         
+        if(cont<=Integer.parseInt(numeroJugadores)){
+            
+            if(d1==1 && d2==1){
+                sumaDados=21;
+                JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par  de unos (1,1) podrá avanzar\n" +
+                    "simultáneamente Veintiuno  (21) posiciones.");         
+            }else if(d1==d2){
+                acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
+                acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares); 
+                JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par.");   
+            }
+         
+            if(cont>1){
+                /*Si un jugador llega a la posición donde hay otro jugador [choque *], el que estaba
+                antes, regresa a salida, es decir inicia nuevamente, y el que llegó, queda esa posición. */
+                if(posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1)==sumaDados){
+                    System.out.println("[choque *]");
+                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" ACUMULÓ:"+sumaDados+" y ha hecho un [choque *] al JUGADOR "+Jactual+" que ACUMULÓ: "+posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1));          
+                    posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior)-1, 0);
+                    int suma_acumuladorChocado=acumuladorChocado.get(Integer.parseInt(jugadorAnterior)-1)+1; //Suma la cantidad de chocados generados por el jugador
+                    acumuladorChocado.set(Integer.parseInt(jugadorAnterior)-1, suma_acumuladorChocado);
+                }
 
-        lbl_turnPlayer.setText(jugadorAnterior);
-     //   lbl_advancedPositions.setText("");
-     //   lbl_missingPositions.setText("");
-     //   lbl_returns.setText("");
-     
+            }
+            posicionesAvanzadas.add(sumaDados); 
+        }else{
+            suma_TotalDados= posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior))+sumaDados;
+            //VALIDACIONES GENERALES DEL JUEGO
+            if(d1==1 && d2==1){
+                int sumaDatos_Limite=posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior))+21;
+                if(sumaDatos_Limite<nivelSeleccionado){
+                    sumaDados=21;   
+                    suma_TotalDados= posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior))+21;
+                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par  de unos (1,1) podrá avanzar\n" +
+                    "simultáneamente Veintiuno (21) posiciones.");   
+               }else{
+                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par  de unos (1,1) no podrá avanzar\n" +
+                    "simultáneamente Veintiuno (21) posiciones. Porque excedió el límite a la meta :\n ACUMULADO ACTUAL: "+sumaDatos_Limite+" mayor  NIVEL META: "+nivelSeleccionado);     
+                }
+                acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
+                acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares); 
+            }else if(d1==d2){
+                acumuladorTotalPares=acumuladorPares.get(Integer.parseInt(jugadorAnterior))+1;
+                acumuladorPares.set(Integer.parseInt(jugadorAnterior), acumuladorTotalPares);
+                 JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" sacó par.");   
+            }   
+            
+            if(acumuladorTotalPares==3){
+            //VALIDAMOS LOS PARES 
+                lblWinner.setText(jugadorAnterior);
+                posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior), suma_TotalDados); 
+                JOptionPane.showMessageDialog(null, "USTED JUGADOR "+jugadorAnterior+" HA GANADO. FELICITACIONES... HA ACUMULADO 3 PARES SEGUIDOS.");
+                btn_playPlayerNo.setEnabled(false);
+                btn_configParams.setEnabled(true);  
+                btn_tryAgain.setEnabled(false);
+                
+            }else if(suma_TotalDados>=nivelSeleccionado){
+               //VALIDAMOS SI TOTAL ACUMULADO DE DATOS ES IGUAL AL NIVEL 
+                    lblWinner.setText(jugadorAnterior);
+                    posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior), suma_TotalDados); 
+                    JOptionPane.showMessageDialog(null, "USTED JUGADOR "+jugadorAnterior+" HA GANADO. FELICITACIONES... SUMA TOTAL DE  DADOS ES IGUAL O MAYOR AL NIVEL: "+nivelSeleccionado+"\nSUMA TOTAL: "+suma_TotalDados);
+                    btn_playPlayerNo.setEnabled(false);
+                    btn_configParams.setEnabled(true);  
+                    btn_tryAgain.setEnabled(false);
+            }else{
+                /*Si un jugador llega a la posición donde hay otro jugador [choque *], el que estaba
+                antes, regresa a salida, es decir inicia nuevamente, y el que llegó, queda esa posición. */
+                if(posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1)==suma_TotalDados){
+                    System.out.println("[choque *]");
+                    JOptionPane.showMessageDialog(null, "Usted JUGADOR "+jugadorAnterior+" ACUMULÓ:"+suma_TotalDados+" y ha hecho un [choque *] al JUGADOR "+Jactual+" que ACUMULÓ: "+posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)-1));          
+                    int suma_DadosChoque=0;
+                    posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior)-1, suma_DadosChoque); //Registramos posicion=0
+                    int suma_acumuladorChocado=acumuladorChocado.get(Integer.parseInt(jugadorAnterior)-1)+1; //Suma la cantidad de chocados generados por el jugador
+                    acumuladorChocado.set(Integer.parseInt(jugadorAnterior)-1, suma_acumuladorChocado); //Registramos                
+                }
+            
+            posicionesAvanzadas.set(Integer.parseInt(jugadorAnterior), suma_TotalDados); 
+           
+            }
+         
+        }
+        //**********************************************************++
+        //MOSTRAR DATOS EN CONSOLA
+        System.out.println("JUGADOR TURNO: "+jugadorAnterior);      
+        System.out.println("POSICIONES AVANZADAS: "+posicionesAvanzadas);
+        //***********************************************************************************
+        
+        //VISUALIZAR DATOS EN SCORES ZONE
+        
+        lbl_turnPlayer.setText(jugadorAnterior); //Muestra (Jugador que lanzó los dados)
+        lbl_advancedPositions.setText(Integer.toString(posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)))); // Posiciones que ha avanzado el Jugador que lanzó los dados
+        lbl_missingPositions.setText(Integer.toString(nivelSeleccionado-posicionesAvanzadas.get(Integer.parseInt(jugadorAnterior)))); // Posiciones que faltan a Meta  el Jugador que lanzó los dados
+        lbl_returns.setText(Integer.toString(acumuladorChocado.get(Integer.parseInt(jugadorAnterior))));
+        lblPairs.setText(Integer.toString(acumuladorPares.get(Integer.parseInt(jugadorAnterior))));
+
         //Validación: Cuando el jugador es el ultimo  del turno. Repite nuevamente los turnos.
      if(jugador==Integer.parseInt(numeroJugadores)){
             jugador=0;
         }
-     counter=0;
-     
+    
     }//GEN-LAST:event_btn_playPlayerNoActionPerformed
 
     /**
