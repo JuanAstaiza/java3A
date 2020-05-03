@@ -460,13 +460,13 @@ public class Number_race extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Cantidad de jugadores no permitida. Debe ser mayor que 1.");        
         }else{
             
-        for (int i = 0; i <=Integer.parseInt(numeroJugadores); i++) {
-            //Añadimos  jugadores al ARRAYLIST seleccionado por el usuario 
-            jugadores.add(Integer.toString(i));
-            //Generamos datos de acuerdo a la cantidad de JUGADORES para ARRAYLIST Acumulador de Pares y Chocado
-            acumuladorPares.add(0); 
-            acumuladorChocado.add(0);
-        }
+            for (int i = 0; i <=Integer.parseInt(numeroJugadores); i++) {
+                //Añadimos  jugadores al ARRAYLIST seleccionado por el usuario 
+                jugadores.add(Integer.toString(i));
+                //Generamos datos de acuerdo a la cantidad de JUGADORES para ARRAYLIST Acumulador de Pares y Chocado
+                acumuladorPares.add(0); 
+                acumuladorChocado.add(0);
+            }
             System.out.println("");
             System.out.println("*********************************************+");
             System.out.println("ARRAY LIST");

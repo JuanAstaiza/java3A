@@ -1,6 +1,7 @@
 package Corte_3;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +19,8 @@ public class Spinning_top extends javax.swing.JFrame {
      * Creates new form Spinning_top
      */
 
-    
+    String numeroCoins;
+
     public Spinning_top() {
         initComponents();
         //No permitimos cambiar tamaño
@@ -40,10 +42,10 @@ public class Spinning_top extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txt_CoinsPlayer1 = new javax.swing.JTextField();
+        txt_CoinsPlayer2 = new javax.swing.JTextField();
+        txt_CoinsPlayer3 = new javax.swing.JTextField();
+        txt_CoinsPlayer4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -54,15 +56,15 @@ public class Spinning_top extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        btn_Play = new javax.swing.JButton();
         cmb_Coins = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_reiniciarJuego = new javax.swing.JButton();
+        btn_players = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Spinning top");
@@ -72,21 +74,29 @@ public class Spinning_top extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Play zone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 14))); // NOI18N
 
-        jTextField1.setBackground(new java.awt.Color(255, 102, 0));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setEnabled(false);
+        txt_CoinsPlayer1.setEditable(false);
+        txt_CoinsPlayer1.setBackground(new java.awt.Color(255, 102, 0));
+        txt_CoinsPlayer1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_CoinsPlayer1.setForeground(new java.awt.Color(255, 255, 255));
+        txt_CoinsPlayer1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 0));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setEnabled(false);
+        txt_CoinsPlayer2.setEditable(false);
+        txt_CoinsPlayer2.setBackground(new java.awt.Color(255, 255, 0));
+        txt_CoinsPlayer2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_CoinsPlayer2.setForeground(new java.awt.Color(255, 255, 255));
+        txt_CoinsPlayer2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField3.setBackground(new java.awt.Color(153, 255, 102));
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setEnabled(false);
+        txt_CoinsPlayer3.setEditable(false);
+        txt_CoinsPlayer3.setBackground(new java.awt.Color(153, 255, 102));
+        txt_CoinsPlayer3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_CoinsPlayer3.setForeground(new java.awt.Color(255, 255, 255));
+        txt_CoinsPlayer3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField4.setBackground(new java.awt.Color(0, 0, 204));
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setEnabled(false);
+        txt_CoinsPlayer4.setEditable(false);
+        txt_CoinsPlayer4.setBackground(new java.awt.Color(0, 0, 204));
+        txt_CoinsPlayer4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_CoinsPlayer4.setForeground(new java.awt.Color(255, 255, 255));
+        txt_CoinsPlayer4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 2, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 255, 255));
@@ -140,7 +150,7 @@ public class Spinning_top extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField4)
+                        .addComponent(txt_CoinsPlayer4)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +159,15 @@ public class Spinning_top extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField1)
+                            .addComponent(txt_CoinsPlayer3)
+                            .addComponent(txt_CoinsPlayer1)
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_CoinsPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -176,7 +186,7 @@ public class Spinning_top extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_CoinsPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 5, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -189,23 +199,28 @@ public class Spinning_top extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_CoinsPlayer4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_CoinsPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_CoinsPlayer3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Config zone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 14))); // NOI18N
 
-        jButton3.setBackground(new java.awt.Color(0, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte3/play.png"))); // NOI18N
+        btn_Play.setBackground(new java.awt.Color(0, 102, 102));
+        btn_Play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte3/play.png"))); // NOI18N
+        btn_Play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PlayActionPerformed(evt);
+            }
+        });
 
         cmb_Coins.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opción", "5", "10", "20", "30" }));
 
@@ -226,7 +241,7 @@ public class Spinning_top extends javax.swing.JFrame {
                         .addComponent(cmb_Coins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -237,7 +252,7 @@ public class Spinning_top extends javax.swing.JFrame {
                     .addComponent(cmb_Coins, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Play, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -282,15 +297,22 @@ public class Spinning_top extends javax.swing.JFrame {
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 51));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Reiniciar Juego");
+        btn_reiniciarJuego.setBackground(new java.awt.Color(0, 102, 51));
+        btn_reiniciarJuego.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_reiniciarJuego.setForeground(new java.awt.Color(255, 255, 255));
+        btn_reiniciarJuego.setText("Reiniciar Juego");
+        btn_reiniciarJuego.setEnabled(false);
+        btn_reiniciarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reiniciarJuegoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Spin around -> Player #");
+        btn_players.setBackground(new java.awt.Color(204, 0, 0));
+        btn_players.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_players.setForeground(new java.awt.Color(255, 255, 255));
+        btn_players.setText("Spin around -> Player #");
+        btn_players.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -299,7 +321,7 @@ public class Spinning_top extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_players, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +329,7 @@ public class Spinning_top extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_reiniciarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -325,8 +347,8 @@ public class Spinning_top extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_reiniciarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_players, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -344,6 +366,28 @@ public class Spinning_top extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PlayActionPerformed
+        numeroCoins= cmb_Coins.getSelectedItem().toString();
+        
+        if(numeroCoins.equals("Seleccione una opción")){
+           JOptionPane.showMessageDialog(null, "Seleccione la cantidad de monedas.");
+        }else{
+            txt_CoinsPlayer1.setText(numeroCoins);
+            txt_CoinsPlayer2.setText(numeroCoins);
+            txt_CoinsPlayer3.setText(numeroCoins);
+            txt_CoinsPlayer4.setText(numeroCoins);
+            btn_Play.setEnabled(false);
+            btn_players.setEnabled(true);
+            btn_reiniciarJuego.setEnabled(true);
+            btn_players.setText("Spin around -> Player 1");
+        }
+
+    }//GEN-LAST:event_btn_PlayActionPerformed
+
+    private void btn_reiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reiniciarJuegoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_reiniciarJuegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,10 +425,10 @@ public class Spinning_top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Play;
+    private javax.swing.JButton btn_players;
+    private javax.swing.JButton btn_reiniciarJuego;
     private javax.swing.JComboBox<String> cmb_Coins;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -402,9 +446,9 @@ public class Spinning_top extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txt_CoinsPlayer1;
+    private javax.swing.JTextField txt_CoinsPlayer2;
+    private javax.swing.JTextField txt_CoinsPlayer3;
+    private javax.swing.JTextField txt_CoinsPlayer4;
     // End of variables declaration//GEN-END:variables
 }
