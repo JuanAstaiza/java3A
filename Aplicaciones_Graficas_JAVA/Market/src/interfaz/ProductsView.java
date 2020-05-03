@@ -239,31 +239,11 @@ public class ProductsView extends javax.swing.JFrame {
             showData();
             
            // System.out.println("Object product: "+products_list);
-            
-            String matris_products[][] = new String[products_list.size()][4];
-            
-            for (int i = 0; i < products_list.size(); i++) {
-                matris_products[i][0] = Integer.toString(products_list.get(i).getCode());
-                matris_products[i][1] = products_list.get(i).getProduct_Name();
-                matris_products[i][2] = Integer.toString(products_list.get(i).getQuantity());
-                matris_products[i][3] = Float.toString(products_list.get(i).getPrice());
-            }
-            
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                matris_products,
-                new String [] {
-                    "Code", "Name", "Quantity", "Unit price"
-                }
-            ) {
-                boolean[] canEdit = new boolean [] {
-                    false, true, true, true
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit [columnIndex];
-                }
-            });
-          
+           //System.out.println("Object product 0: " + product_list.get(0));
+ 
+            showData();
+           
+        
             
             txtProductName.setText("");
             txtProductCode.setText("");
@@ -276,7 +256,30 @@ public class ProductsView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_addProductActionPerformed
 
     private void showData() {
+        
+        String matris_products[][] = new String[products_list.size()][4];
 
+        for (int i = 0; i < products_list.size(); i++) {
+            matris_products[i][0] = Integer.toString(products_list.get(i).getCode());
+            matris_products[i][1] = products_list.get(i).getProduct_Name();
+            matris_products[i][2] = Integer.toString(products_list.get(i).getQuantity());
+            matris_products[i][3] = Float.toString(products_list.get(i).getPrice());
+        }
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matris_products,
+            new String [] {
+                "Code", "Name", "Quantity", "Unit price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
     
     }
     
