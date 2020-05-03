@@ -236,8 +236,7 @@ public class ProductsView extends javax.swing.JFrame {
         }else{
             Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
             products_list.add(product);
-            showData();
-            
+           
            // System.out.println("Object product: "+products_list);
            //System.out.println("Object product 0: " + product_list.get(0));
  
