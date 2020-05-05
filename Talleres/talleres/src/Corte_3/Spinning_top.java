@@ -1,5 +1,8 @@
 package Corte_3;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -13,13 +16,16 @@ import javax.swing.JOptionPane;
  *
  * @author juanc
  */
+
 public class Spinning_top extends javax.swing.JFrame {
 
     /**
      * Creates new form Spinning_top
      */
-
-    String numeroCoins;
+    int jugador=0,acumuladorMonedas=0;
+    String numeroMonedas;
+    
+    ArrayList<Integer>  monedas = new ArrayList<Integer>();
 
     public Spinning_top() {
         initComponents();
@@ -54,15 +60,15 @@ public class Spinning_top extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        img_Pirinola = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btn_Play = new javax.swing.JButton();
         cmb_Coins = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        txt_acumulador = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        txt_ganador = new javax.swing.JLabel();
         btn_reiniciarJuego = new javax.swing.JButton();
         btn_players = new javax.swing.JButton();
 
@@ -81,13 +87,13 @@ public class Spinning_top extends javax.swing.JFrame {
         txt_CoinsPlayer1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txt_CoinsPlayer2.setEditable(false);
-        txt_CoinsPlayer2.setBackground(new java.awt.Color(255, 255, 0));
+        txt_CoinsPlayer2.setBackground(new java.awt.Color(0, 102, 102));
         txt_CoinsPlayer2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_CoinsPlayer2.setForeground(new java.awt.Color(255, 255, 255));
         txt_CoinsPlayer2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txt_CoinsPlayer3.setEditable(false);
-        txt_CoinsPlayer3.setBackground(new java.awt.Color(153, 255, 102));
+        txt_CoinsPlayer3.setBackground(new java.awt.Color(0, 102, 51));
         txt_CoinsPlayer3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_CoinsPlayer3.setForeground(new java.awt.Color(255, 255, 255));
         txt_CoinsPlayer3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -138,8 +144,8 @@ public class Spinning_top extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Player 3");
 
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte3/question.png"))); // NOI18N
+        img_Pirinola.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        img_Pirinola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesCorte3/question.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -162,7 +168,7 @@ public class Spinning_top extends javax.swing.JFrame {
                             .addComponent(txt_CoinsPlayer3)
                             .addComponent(txt_CoinsPlayer1)
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                            .addComponent(img_Pirinola, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,7 +207,7 @@ public class Spinning_top extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_CoinsPlayer4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_CoinsPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel12))
+                    .addComponent(img_Pirinola))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(1, 1, 1)
@@ -259,41 +265,41 @@ public class Spinning_top extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 204, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Acumulated", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 14))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 80)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("0");
+        txt_acumulador.setFont(new java.awt.Font("Tahoma", 1, 80)); // NOI18N
+        txt_acumulador.setForeground(new java.awt.Color(255, 0, 0));
+        txt_acumulador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_acumulador.setText("0");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txt_acumulador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_acumulador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 204, 204));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Winner", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 14))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 80)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("?");
+        txt_ganador.setFont(new java.awt.Font("Tahoma", 1, 80)); // NOI18N
+        txt_ganador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_ganador.setText("?");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(txt_ganador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
@@ -313,6 +319,11 @@ public class Spinning_top extends javax.swing.JFrame {
         btn_players.setForeground(new java.awt.Color(255, 255, 255));
         btn_players.setText("Spin around -> Player #");
         btn_players.setEnabled(false);
+        btn_players.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_playersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -368,26 +379,168 @@ public class Spinning_top extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PlayActionPerformed
-        numeroCoins= cmb_Coins.getSelectedItem().toString();
+        numeroMonedas= cmb_Coins.getSelectedItem().toString();
         
-        if(numeroCoins.equals("Seleccione una opción")){
+        if(numeroMonedas.equals("Seleccione una opción")){
            JOptionPane.showMessageDialog(null, "Seleccione la cantidad de monedas.");
         }else{
-            txt_CoinsPlayer1.setText(numeroCoins);
-            txt_CoinsPlayer2.setText(numeroCoins);
-            txt_CoinsPlayer3.setText(numeroCoins);
-            txt_CoinsPlayer4.setText(numeroCoins);
+            txt_CoinsPlayer1.setText(numeroMonedas);
+            txt_CoinsPlayer2.setText(numeroMonedas);
+            txt_CoinsPlayer3.setText(numeroMonedas);
+            txt_CoinsPlayer4.setText(numeroMonedas);
             btn_Play.setEnabled(false);
+            cmb_Coins.setEnabled(false);
             btn_players.setEnabled(true);
             btn_reiniciarJuego.setEnabled(true);
             btn_players.setText("Spin around -> Player 1");
-        }
 
+            for (int i = 1; i <= 4; i++) {
+                monedas.add(Integer.parseInt(numeroMonedas));       
+            }     
+            System.out.println("MONEDAS DE CADA JUGADOR: "+monedas);
+
+        }
     }//GEN-LAST:event_btn_PlayActionPerformed
 
     private void btn_reiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reiniciarJuegoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reiniciarJuegoActionPerformed
+
+    private void btn_playersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playersActionPerformed
+        jugador++;
+        
+        
+        if(jugador>4){
+           jugador=1;
+        }
+        if(jugador==4){
+            btn_players.setText("Spin around -> Player 1");
+        }else{
+            btn_players.setText("Spin around -> Player "+Integer.toString(jugador+1));
+        }
+       
+
+       System.out.println("POSICION: "+Integer.toString(jugador-1));
+        
+        
+        
+        
+        Random Pirinola = new Random();
+        int cara;
+        
+        cara = (int)(Pirinola.nextDouble()* 6 + 1);
+
+        //MOSTRAR CARA DE LA PIRINOLA
+        for (int i = 1; i<=6; i++) {
+          if(i==cara){
+              img_Pirinola.setIcon(new ImageIcon(getClass().getResource("/imagesCorte3/"+i+".png")));
+          }           
+        }      
+  
+                     
+        System.out.println("POSICION: "+Integer.toString(jugador-1));
+        //VALIDAR CARAS DE LA PIRINOLA PARA LOS JUGADORES
+        int monedaActual=monedas.get(jugador-1);
+
+        switch(cara){
+            case 1:
+                System.out.println("PON 1");
+                if(monedaActual>0){
+                    monedas.set(jugador-1, monedaActual-1);
+                    acumuladorMonedas=acumuladorMonedas+1;   
+                }             
+                break;
+            case 2:
+                if(monedaActual>0){
+                    System.out.println("PON 2");
+                    monedas.set(jugador-1, monedaActual-2);
+                    acumuladorMonedas=acumuladorMonedas+2;
+                }
+                break;
+           case 3:
+                if(monedaActual>0){
+                    System.out.println("TOMA 1");
+                    monedas.set(jugador-1, monedaActual+1);
+                    acumuladorMonedas=acumuladorMonedas-1;
+               }
+                break;
+            case 4:
+                if(monedaActual>0){
+                    System.out.println("TOMA 2");
+                    monedas.set(jugador-1, monedaActual+2);
+                    acumuladorMonedas=acumuladorMonedas-2;
+                }
+                break;
+            case 5:
+              System.out.println("TOMA TODO");
+               if(acumuladorMonedas>0){
+                    if(monedas.get(jugador-1)>0){
+                        monedas.set(jugador-1, monedaActual+acumuladorMonedas);
+                        acumuladorMonedas=acumuladorMonedas-acumuladorMonedas;  
+                    }                                                 
+               }else{
+                    JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");
+               }  
+                break;
+            case 6:
+                System.out.println("TODOS PONEN");
+                for (int i = 0; i <= monedas.size()-1; i++) {
+                    if(monedaActual>0){
+                        monedaActual=monedas.get(i);
+                        monedas.set(i, monedaActual-1);  
+                        acumuladorMonedas++;
+                    }
+                }
+                break;
+        }
+        
+        System.out.println(monedas);
+        
+        
+        int modena=monedas.get(jugador-1);
+        int jugadoractual=jugador-1;
+        switch(jugadoractual){
+            case 1:
+                if(modena>0){
+                    txt_CoinsPlayer1.setText(Integer.toString(modena));  
+                }else{
+                    txt_CoinsPlayer1.setText("GAME OVER");  
+                    txt_CoinsPlayer1.setBackground(Color.BLACK);
+                }
+                break;
+           case 2:
+                if(modena>0){
+                   txt_CoinsPlayer2.setText(Integer.toString(modena));  
+                }else{
+                    txt_CoinsPlayer2.setText("GAME OVER");  
+                    txt_CoinsPlayer2.setBackground(Color.BLACK);
+                }
+                break;
+            case 3:      
+                if(modena>0){
+                   txt_CoinsPlayer3.setText(Integer.toString(modena));  
+                }else{
+                    txt_CoinsPlayer3.setText("GAME OVER");  
+                    txt_CoinsPlayer3.setBackground(Color.BLACK);
+                }
+                break;
+            case 4:
+                if(modena>0){
+                    txt_CoinsPlayer4.setText(Integer.toString(modena));  
+                }else{
+                    txt_CoinsPlayer4.setText("GAME OVER");  
+                    txt_CoinsPlayer4.setBackground(Color.BLACK);
+                }
+                break;
+        }
+        
+
+
+        txt_acumulador.setText(Integer.toString(acumuladorMonedas));
+        
+      
+ 
+    }//GEN-LAST:event_btn_playersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,12 +582,10 @@ public class Spinning_top extends javax.swing.JFrame {
     private javax.swing.JButton btn_players;
     private javax.swing.JButton btn_reiniciarJuego;
     private javax.swing.JComboBox<String> cmb_Coins;
+    private javax.swing.JLabel img_Pirinola;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -450,5 +601,7 @@ public class Spinning_top extends javax.swing.JFrame {
     private javax.swing.JTextField txt_CoinsPlayer2;
     private javax.swing.JTextField txt_CoinsPlayer3;
     private javax.swing.JTextField txt_CoinsPlayer4;
+    private javax.swing.JLabel txt_acumulador;
+    private javax.swing.JLabel txt_ganador;
     // End of variables declaration//GEN-END:variables
 }
