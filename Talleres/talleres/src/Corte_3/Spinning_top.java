@@ -421,7 +421,7 @@ public class Spinning_top extends javax.swing.JFrame {
        
 
        System.out.println("POSICION: "+Integer.toString(jugador-1));
-        
+
         
         
         
@@ -441,6 +441,7 @@ public class Spinning_top extends javax.swing.JFrame {
         System.out.println("POSICION: "+Integer.toString(jugador-1));
         //VALIDAR CARAS DE LA PIRINOLA PARA LOS JUGADORES
         int monedaActual=monedas.get(jugador-1);
+        int jugadoractual=jugador-1;
 
         switch(cara){
             case 1:
@@ -448,7 +449,8 @@ public class Spinning_top extends javax.swing.JFrame {
                 if(monedaActual>0){
                     monedas.set(jugador-1, monedaActual-1);
                     acumuladorMonedas=acumuladorMonedas+1;   
-                }             
+                }     
+                validarJugador(monedaActual,jugadoractual);
                 break;
             case 2:
                 if(monedaActual>0){
@@ -456,20 +458,31 @@ public class Spinning_top extends javax.swing.JFrame {
                     monedas.set(jugador-1, monedaActual-2);
                     acumuladorMonedas=acumuladorMonedas+2;
                 }
+                validarJugador(monedaActual,jugadoractual);
                 break;
            case 3:
-                if(monedaActual>0){
-                    System.out.println("TOMA 1");
-                    monedas.set(jugador-1, monedaActual+1);
-                    acumuladorMonedas=acumuladorMonedas-1;
-               }
+                if(acumuladorMonedas>0){
+                    if(monedaActual>0){
+                        System.out.println("TOMA 1");
+                        monedas.set(jugador-1, monedaActual+1);
+                        acumuladorMonedas=acumuladorMonedas-1;
+                    }
+                    validarJugador(monedaActual,jugadoractual);
+                }else{
+                    JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");     
+                }
                 break;
             case 4:
-                if(monedaActual>0){
-                    System.out.println("TOMA 2");
-                    monedas.set(jugador-1, monedaActual+2);
-                    acumuladorMonedas=acumuladorMonedas-2;
-                }
+                if(acumuladorMonedas>0){
+                    if(monedaActual>0){
+                        System.out.println("TOMA 2");
+                        monedas.set(jugador-1, monedaActual+2);
+                        acumuladorMonedas=acumuladorMonedas-2;
+                    }
+                    validarJugador(monedaActual,jugadoractual);
+                }else{
+                    JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");     
+                }   
                 break;
             case 5:
               System.out.println("TOMA TODO");
@@ -477,7 +490,8 @@ public class Spinning_top extends javax.swing.JFrame {
                     if(monedas.get(jugador-1)>0){
                         monedas.set(jugador-1, monedaActual+acumuladorMonedas);
                         acumuladorMonedas=acumuladorMonedas-acumuladorMonedas;  
-                    }                                                 
+                    } 
+                    validarJugador(monedaActual,jugadoractual);
                }else{
                     JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");
                }  
@@ -488,7 +502,11 @@ public class Spinning_top extends javax.swing.JFrame {
                     if(monedaActual>0){
                         monedaActual=monedas.get(i);
                         monedas.set(i, monedaActual-1);  
-                        acumuladorMonedas++;
+                        acumuladorMonedas++;                     
+                        txt_CoinsPlayer1.setText(Integer.toString(monedas.get(i)));  
+                        txt_CoinsPlayer2.setText(Integer.toString(monedas.get(i)));  
+                        txt_CoinsPlayer3.setText(Integer.toString(monedas.get(i)));  
+                        txt_CoinsPlayer4.setText(Integer.toString(monedas.get(i)));  
                     }
                 }
                 break;
@@ -497,42 +515,6 @@ public class Spinning_top extends javax.swing.JFrame {
         System.out.println(monedas);
         
         
-        int modena=monedas.get(jugador-1);
-        int jugadoractual=jugador-1;
-        switch(jugadoractual){
-            case 1:
-                if(modena>0){
-                    txt_CoinsPlayer1.setText(Integer.toString(modena));  
-                }else{
-                    txt_CoinsPlayer1.setText("GAME OVER");  
-                    txt_CoinsPlayer1.setBackground(Color.BLACK);
-                }
-                break;
-           case 2:
-                if(modena>0){
-                   txt_CoinsPlayer2.setText(Integer.toString(modena));  
-                }else{
-                    txt_CoinsPlayer2.setText("GAME OVER");  
-                    txt_CoinsPlayer2.setBackground(Color.BLACK);
-                }
-                break;
-            case 3:      
-                if(modena>0){
-                   txt_CoinsPlayer3.setText(Integer.toString(modena));  
-                }else{
-                    txt_CoinsPlayer3.setText("GAME OVER");  
-                    txt_CoinsPlayer3.setBackground(Color.BLACK);
-                }
-                break;
-            case 4:
-                if(modena>0){
-                    txt_CoinsPlayer4.setText(Integer.toString(modena));  
-                }else{
-                    txt_CoinsPlayer4.setText("GAME OVER");  
-                    txt_CoinsPlayer4.setBackground(Color.BLACK);
-                }
-                break;
-        }
         
 
 
@@ -541,7 +523,44 @@ public class Spinning_top extends javax.swing.JFrame {
       
  
     }//GEN-LAST:event_btn_playersActionPerformed
-
+    private void validarJugador(int modena,int jugadoractual) {
+        System.out.println("MODENA: "+modena);
+        System.out.println("JUGADOR: "+jugadoractual);
+        switch(jugadoractual){
+            case 0:
+                if(modena<=0){
+                    txt_CoinsPlayer1.setText("GAME OVER");  
+                    txt_CoinsPlayer1.setBackground(Color.BLACK);
+                }else{
+                    txt_CoinsPlayer1.setText(Integer.toString(monedas.get(jugadoractual)));           
+                }
+                break;
+           case 1:
+                if(modena<=0){
+                    txt_CoinsPlayer2.setText("GAME OVER");  
+                    txt_CoinsPlayer2.setBackground(Color.BLACK);
+                }else{
+                    txt_CoinsPlayer2.setText(Integer.toString(monedas.get(jugadoractual)));                    
+                }
+                break;
+            case 2:      
+                if(modena<=0){
+                    txt_CoinsPlayer3.setText("GAME OVER");  
+                    txt_CoinsPlayer3.setBackground(Color.BLACK);
+                }else{
+                   txt_CoinsPlayer3.setText(Integer.toString(monedas.get(jugadoractual)));                    
+                }
+                break;
+            case 3:
+                if(modena<=0){
+                    txt_CoinsPlayer4.setText("GAME OVER");  
+                    txt_CoinsPlayer4.setBackground(Color.BLACK);
+                }else{
+                    txt_CoinsPlayer4.setText(Integer.toString(monedas.get(jugadoractual)));  
+                }
+                break;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -604,4 +623,6 @@ public class Spinning_top extends javax.swing.JFrame {
     private javax.swing.JLabel txt_acumulador;
     private javax.swing.JLabel txt_ganador;
     // End of variables declaration//GEN-END:variables
+
+
 }

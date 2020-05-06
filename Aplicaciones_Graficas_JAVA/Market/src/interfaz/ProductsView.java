@@ -102,7 +102,7 @@ public class ProductsView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 255, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2), "New product", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Product code:");
 
         txtProductCode.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -111,7 +111,7 @@ public class ProductsView extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Product name:");
 
         txtProductName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -120,7 +120,7 @@ public class ProductsView extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Quantity:");
 
         txtQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -135,7 +135,7 @@ public class ProductsView extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Unit price:");
 
         btn_addProduct.setBackground(new java.awt.Color(153, 0, 0));
@@ -226,8 +226,8 @@ public class ProductsView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addProductActionPerformed
-        String productName = txtProductName.getText();
         String productCode = txtProductCode.getText();
+        String productName = txtProductName.getText();
         String quantity = txtQuantity.getText();
         String unitPrice = txtUnitprice.getText();
         
@@ -236,24 +236,18 @@ public class ProductsView extends javax.swing.JFrame {
         }else{
             Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
             products_list.add(product);
-           
-           // System.out.println("Object product: "+products_list);
-           //System.out.println("Object product 0: " + product_list.get(0));
- 
-            showData();
-           
-        
-            
-            txtProductName.setText("");
-            txtProductCode.setText("");
-            txtQuantity.setText("");
-            txtUnitprice.setText("");
-            
+            showData();       
+            clearForm();            
             JOptionPane.showMessageDialog(rootPane, "Producto registrado."); 
         }
         
     }//GEN-LAST:event_btn_addProductActionPerformed
-
+    private void clearForm() {
+        txtProductName.setText("");
+        txtProductCode.setText("");
+        txtQuantity.setText("");
+        txtUnitprice.setText("");    
+    }
     private void showData() {
         
         String matris_products[][] = new String[products_list.size()][4];
