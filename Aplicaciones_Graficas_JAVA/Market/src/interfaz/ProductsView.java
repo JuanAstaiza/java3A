@@ -19,7 +19,8 @@ public class ProductsView extends javax.swing.JFrame {
      * Creates new form Products
      */
     ArrayList<Products>  products_list= new ArrayList<Products>();    //Create an ArrayList
-
+    boolean b=false;
+    String productoRepetido="";
     
     public ProductsView() {
         initComponents();
@@ -234,11 +235,38 @@ public class ProductsView extends javax.swing.JFrame {
         if(productCode.equals("") || productName.equals("") || quantity.equals("") || unitPrice.equals("")){
             JOptionPane.showMessageDialog(rootPane, "Hay campos vacios.");
         }else{
-            Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
-            products_list.add(product);
-            showData();       
-            clearForm();            
-            JOptionPane.showMessageDialog(rootPane, "Producto registrado."); 
+            int cantidadProductos=products_list.size();
+            if(cantidadProductos==0){
+                System.out.println("asasd");
+                Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
+                products_list.add(product);
+                showData();       
+                clearForm(); 
+            }else{
+                for (int i = 0; i < products_list.size(); i++) {
+                       if(products_list.get(i).getCode()==Integer.parseInt(productCode)){
+                            System.out.println("asdasdasdsadsa");
+                            b=true;
+                            productoRepetido="Codigo del Producto.";
+                        }else if(products_list.get(i).getProduct_Name().equals(productName)){
+                            b=true;
+                            productoRepetido="Nombre del Producto.";
+                        }else{
+                            b=false;
+                            productoRepetido="";        
+                        }
+                       
+                }
+                if(b==false){
+                    Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
+                    products_list.add(product);
+                    showData();       
+                    clearForm();    
+                    JOptionPane.showMessageDialog(rootPane, "Producto registrado."); 
+                }else if(b==true){                    
+                     JOptionPane.showMessageDialog(rootPane, productoRepetido+" se encuentra registrado"); 
+                }
+            }
         }
         
     }//GEN-LAST:event_btn_addProductActionPerformed
