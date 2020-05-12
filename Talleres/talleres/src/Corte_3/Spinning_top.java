@@ -22,11 +22,10 @@ public class Spinning_top extends javax.swing.JFrame {
     /**
      * Creates new form Spinning_top
      */
-    int jugador=0,acumuladorMonedas=0;
+    int jugador=1,acumuladorMonedas=0;
     String numeroMonedas;
     
     ArrayList<Integer>  monedas = new ArrayList<Integer>();
-    ArrayList<Integer>  jugadores = new ArrayList<Integer>();
 
     public Spinning_top() {
         initComponents();
@@ -341,7 +340,7 @@ public class Spinning_top extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btn_reiniciarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,14 +359,14 @@ public class Spinning_top extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_reiniciarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_players, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,56 +378,85 @@ public class Spinning_top extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PlayActionPerformed
+        jugador=1;
+        acumuladorMonedas=0;
         numeroMonedas= cmb_Coins.getSelectedItem().toString();
         
         if(numeroMonedas.equals("Seleccione una opción")){
            JOptionPane.showMessageDialog(null, "Seleccione la cantidad de monedas.");
         }else{
             txt_CoinsPlayer1.setText(numeroMonedas);
+            Color colorPlayer1=new Color(255,102,0);
+            txt_CoinsPlayer1.setBackground(colorPlayer1);
+            
             txt_CoinsPlayer2.setText(numeroMonedas);
+            Color colorPlayer2=new Color(0,102,102);
+            txt_CoinsPlayer2.setBackground(colorPlayer2);
+            
             txt_CoinsPlayer3.setText(numeroMonedas);
+            Color colorPlayer3=new Color(0,102,51);
+            txt_CoinsPlayer3.setBackground(colorPlayer3);
+            
             txt_CoinsPlayer4.setText(numeroMonedas);
+            Color colorPlayer4=new Color(0,0,204);
+            txt_CoinsPlayer4.setBackground(colorPlayer4);
+            
             btn_Play.setEnabled(false);
             cmb_Coins.setEnabled(false);
             btn_players.setEnabled(true);
             btn_reiniciarJuego.setEnabled(true);
             btn_players.setText("Spin around -> Player 1");
+            
+            txt_ganador.setText("?");
+            txt_acumulador.setText("0");
 
             for (int i = 1; i <= 4; i++) {
                 monedas.add(Integer.parseInt(numeroMonedas));     
-                jugadores.add(i);
-            }     
-            System.out.println("JUGADORES: "+jugadores);
+            }    
             System.out.println("MONEDAS DE CADA JUGADOR: "+monedas);
 
         }
     }//GEN-LAST:event_btn_PlayActionPerformed
 
     private void btn_reiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reiniciarJuegoActionPerformed
-        // TODO add your handling code here:
+        jugador=1;
+        acumuladorMonedas=0;
+        monedas.clear();
+        txt_acumulador.setText("0");
+        txt_ganador.setText("?");
+
+        
+        txt_CoinsPlayer1.setText(numeroMonedas);
+        Color colorPlayer1=new Color(255,102,0);
+        txt_CoinsPlayer1.setBackground(colorPlayer1);
+
+        txt_CoinsPlayer2.setText(numeroMonedas);
+        Color colorPlayer2=new Color(0,102,102);
+        txt_CoinsPlayer2.setBackground(colorPlayer2);
+
+        txt_CoinsPlayer3.setText(numeroMonedas);
+        Color colorPlayer3=new Color(0,102,51);
+        txt_CoinsPlayer3.setBackground(colorPlayer3);
+
+        txt_CoinsPlayer4.setText(numeroMonedas);
+        Color colorPlayer4=new Color(0,0,204);
+        txt_CoinsPlayer4.setBackground(colorPlayer4);
+
+        btn_Play.setEnabled(false);
+        cmb_Coins.setEnabled(false);
+        btn_players.setEnabled(true);
+        btn_reiniciarJuego.setEnabled(true);
+        btn_players.setText("Spin around -> Player 1");
+             
+
+            for (int i = 1; i <= 4; i++) {
+                monedas.add(Integer.parseInt(numeroMonedas));     
+            }    
+        System.out.println("MONEDAS DE CADA JUGADOR: "+monedas);
     }//GEN-LAST:event_btn_reiniciarJuegoActionPerformed
 
     private void btn_playersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playersActionPerformed
-        jugador++;
-        
-        
-        if(jugador>4){
-           jugador=1;
-        }
-        
-        if(jugador==4){
-            
-            btn_players.setText("Spin around -> Player 1");
-        }else{
-            btn_players.setText("Spin around -> Player "+Integer.toString(jugador+1));
-        }
-       
-
-       System.out.println("POSICION: "+Integer.toString(jugador-1));
-
-        
-        
-        
+ 
         Random Pirinola = new Random();
         int cara;
         
@@ -438,8 +466,7 @@ public class Spinning_top extends javax.swing.JFrame {
           if(i==cara){
               img_Pirinola.setIcon(new ImageIcon(getClass().getResource("/imagesCorte3/"+i+".png")));
           }           
-        }      
-      //  cara=1;         
+        }  
         //VALIDAR CARAS DE LA PIRINOLA PARA LOS JUGADORES
         int monedaActual=monedas.get(jugador-1);
         int monedaActualActualizada=0,valorMoneda=0;
@@ -451,9 +478,9 @@ public class Spinning_top extends javax.swing.JFrame {
                 if(monedaActual>0){
                     monedas.set(jugador-1, monedaActual-1);
                     acumuladorMonedas=acumuladorMonedas+1;   
+                    monedaActualActualizada=monedas.get(jugador-1);
+                    validarJugador(monedaActualActualizada,jugadoractual);
                 } 
-                monedaActualActualizada=monedas.get(jugador-1);
-                validarJugador(monedaActualActualizada,jugadoractual);
                 break;
             case 2:
                 valorMoneda=2;
@@ -464,9 +491,9 @@ public class Spinning_top extends javax.swing.JFrame {
                     System.out.println("PON 2");
                     monedas.set(jugador-1, monedaActual-valorMoneda);
                     acumuladorMonedas=acumuladorMonedas+valorMoneda;
+                    monedaActualActualizada=monedas.get(jugador-1);
+                    validarJugador(monedaActualActualizada,jugadoractual);
                 }
-                monedaActualActualizada=monedas.get(jugador-1);
-                validarJugador(monedaActualActualizada,jugadoractual);
                 break;
            case 3:
                 if(acumuladorMonedas>0){
@@ -474,9 +501,9 @@ public class Spinning_top extends javax.swing.JFrame {
                         System.out.println("TOMA 1");
                         monedas.set(jugador-1, monedaActual+1);
                         acumuladorMonedas=acumuladorMonedas-1;
+                        monedaActualActualizada=monedas.get(jugador-1);
+                        validarJugador(monedaActualActualizada,jugadoractual);
                     }
-                    monedaActualActualizada=monedas.get(jugador-1);
-                    validarJugador(monedaActualActualizada,jugadoractual);
                 }else{
                     JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");     
                 }
@@ -491,9 +518,9 @@ public class Spinning_top extends javax.swing.JFrame {
                         System.out.println("TOMA 2");
                         monedas.set(jugador-1, monedaActual+valorMoneda);
                         acumuladorMonedas=acumuladorMonedas-valorMoneda;
+                        monedaActualActualizada=monedas.get(jugador-1);
+                        validarJugador(monedaActualActualizada,jugadoractual);
                     }
-                    monedaActualActualizada=monedas.get(jugador-1);
-                    validarJugador(monedaActualActualizada,jugadoractual);
                 }else{
                     JOptionPane.showMessageDialog(null, "El banco no tiene saldo para pagar.");     
                 }   
@@ -514,8 +541,8 @@ public class Spinning_top extends javax.swing.JFrame {
             case 6:
                 System.out.println("TODOS PONEN");
                 for (int i = 0; i <= monedas.size()-1; i++) {
+                    monedaActual=monedas.get(i);
                     if(monedaActual>0){
-                        monedaActual=monedas.get(i);
                         monedas.set(i, monedaActual-1);  
                         acumuladorMonedas++; 
                         monedaActualActualizada=monedas.get(i);
@@ -532,10 +559,61 @@ public class Spinning_top extends javax.swing.JFrame {
 
 
         txt_acumulador.setText(Integer.toString(acumuladorMonedas));
+
         
-      
+        turnos(); //validamos el jugador si tiene monedas o no.
  
     }//GEN-LAST:event_btn_playersActionPerformed
+    
+    private void turnos() {
+        jugador++;
+        int aux=0;
+        if(jugador==5){            
+            jugador=1;   
+        }
+        int posicion=jugador-1;
+        do{            
+            if(monedas.get(posicion)<=0){
+                jugador++;
+                if (jugador==5) {
+                   jugador=1;
+                   posicion=-1;
+                }
+            }else{
+                break; //Detener bucle
+            }
+            aux++;
+            if(aux>4){
+                break; //Detener bucle
+            }
+            posicion++;
+        }while(posicion<monedas.size());
+        ganador();
+        
+        btn_players.setText("Spin around -> Player "+Integer.toString(jugador)); 
+        System.out.println("POSICION: "+Integer.toString(jugador-1));     
+    }
+    
+    private void ganador(){
+        int x=4;
+        for (int i = 0; i < monedas.size(); i++) {
+            if(monedas.get(i)<=0){
+                x--;
+            }
+        }
+        if(x==1){
+            btn_players.setEnabled(false);
+            btn_reiniciarJuego.setEnabled(false);
+            btn_Play.setEnabled(true);
+            cmb_Coins.setEnabled(true);
+            txt_ganador.setText(Integer.toString(jugador));
+            monedas.clear();         
+            
+        }
+    }
+
+    
+    
     private void validarJugador(int modena,int jugadoractual) {
         System.out.println("MODENA: "+modena);
         System.out.println("JUGADOR: "+jugadoractual);
@@ -603,6 +681,18 @@ public class Spinning_top extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -639,6 +729,8 @@ public class Spinning_top extends javax.swing.JFrame {
     private javax.swing.JLabel txt_acumulador;
     private javax.swing.JLabel txt_ganador;
     // End of variables declaration//GEN-END:variables
+
+
 
 
 }

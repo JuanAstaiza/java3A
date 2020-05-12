@@ -816,7 +816,7 @@ public class Number_race extends javax.swing.JFrame {
         lblPairs.setText(Integer.toString(acumuladorPares.get(Integer.parseInt(jugadorAnterior))));
 
         //Validación: Cuando el jugador es el ultimo  del turno. Repite nuevamente los turnos.
-     if(jugador==Integer.parseInt(numeroJugadores)){
+        if(jugador==Integer.parseInt(numeroJugadores)){
             jugador=0;
         }
     
