@@ -237,7 +237,6 @@ public class ProductsView extends javax.swing.JFrame {
         }else{
             int cantidadProductos=products_list.size();
             if(cantidadProductos==0){
-                System.out.println("asasd");
                 Products product = new Products(productName, Integer.parseInt(productCode), Integer.parseInt(quantity),Float.parseFloat(unitPrice));
                 products_list.add(product);
                 showData();       
@@ -245,7 +244,6 @@ public class ProductsView extends javax.swing.JFrame {
             }else{
                 for (int i = 0; i < products_list.size(); i++) {
                        if(products_list.get(i).getCode()==Integer.parseInt(productCode)){
-                            System.out.println("asdasdasdsadsa");
                             b=true;
                             productoRepetido="Codigo del Producto.";
                         }else if(products_list.get(i).getProduct_Name().equals(productName)){

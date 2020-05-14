@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juanc
@@ -14,6 +17,10 @@ public class LoginView extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    String user="",password="";
+    ArrayList<String> usuarios = new ArrayList<String>();
+    ArrayList<String> claves = new ArrayList<String>();
+
     public LoginView() {
         initComponents();
     }
@@ -60,6 +67,11 @@ public class LoginView extends javax.swing.JFrame {
         btn_SignOn.setBackground(new java.awt.Color(255, 0, 0));
         btn_SignOn.setForeground(new java.awt.Color(255, 255, 255));
         btn_SignOn.setText("Sign on");
+        btn_SignOn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SignOnActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -124,8 +136,55 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SignInActionPerformed
-        // TODO add your handling code here:
+        String user=txtUserName.getText();
+        String password=txtPassword.getText();
+        
+        if(user.equals("") || password.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Hay campos vacios.");
+        }else{
+            //VERIFICAR SI ESTAN EN EL SISTEMA SI NO DECILE QUE SE REGISTRE.
+        }
     }//GEN-LAST:event_btn_SignInActionPerformed
+
+    private void btn_SignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SignOnActionPerformed
+        boolean b=false;
+        
+        //valida si hay campos vacios try{}catch{} permite quitar el error del NULL
+        while(b!=true){
+            try {
+                user=JOptionPane.showInputDialog("Introduce el nombre de Usuario ha registrar: ");
+                if(user.equals("")){
+                    JOptionPane.showMessageDialog(null, "El campo esta vacío.");
+                    b=false;
+                }else{
+                    b=true;
+                    usuarios.add(user);
+                }    
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "El campo esta vacío.");
+            }
+        }
+        
+        b=false;
+        while(b!=true){
+            try {
+                password = JOptionPane.showInputDialog("Introduce la contraseña ha registrar: ");
+                if(password.equals("")){
+                    JOptionPane.showMessageDialog(null, "El campo esta vacío.");
+                    b=false;
+                }else{
+                    b=true;
+                    claves.add(password);
+                }   
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "El campo esta vacío.");
+            }            
+        }
+        
+               
+        System.out.println("USUARIOS: "+usuarios);
+        System.out.println("CLAVES: "+claves);
+    }//GEN-LAST:event_btn_SignOnActionPerformed
 
     /**
      * @param args the command line arguments
