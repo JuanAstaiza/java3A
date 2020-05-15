@@ -14,23 +14,29 @@
                 <Property name="text" type="java.lang.String" value="Skins"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="menuItem_Classic">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Classic">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Classic"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_ClassicActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_ClassicActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuItem_Darkula">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Darkula">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Darkula"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_DarkulaActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuItem_Light">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Ligth">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Light"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_LigthActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -41,76 +47,129 @@
                 <Property name="text" type="java.lang.String" value="Font"/>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="jMenu7">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Text size"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="12"/>
-                      </Properties>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="14"/>
-                      </Properties>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="18"/>
-                      </Properties>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="20"/>
-                      </Properties>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Text color"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextColorBlack">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Black"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextColorBlackActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem19">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextColorRed">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Red"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextColorRedActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextColorWhite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="White"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextColorWhiteActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Text font"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextFontArial">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Arial"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextFontArialActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextFontCalibri">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Calibri"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextFontCalibriActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Text size"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextSize12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="12"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextSize12ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextSize14">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="14"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextSize14ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextSize18">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="18"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextSize18ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextSize20">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="20"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextSize20ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
                 <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator4">
                 </MenuItem>
-                <Menu class="javax.swing.JMenu" name="jMenu9">
+                <Menu class="javax.swing.JMenu" name="jMenuItem_TextAligment">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Display aligment"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextAligmentCenter">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Center"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextAligmentCenterActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextAligmentLeft">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Left"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextAligmentLeftActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem22">
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_TextAligmentRight">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Right"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_TextAligmentRightActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -222,17 +281,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel5" max="32767" attributes="0"/>
+          <Component id="pnlMain" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlMain" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel5">
+    <Container class="javax.swing.JPanel" name="pnlMain">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -243,13 +302,13 @@
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblDisplay" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="BtnClear" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="Btn10" min="-2" pref="87" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="Btn11" min="-2" pref="87" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="Btn12" min="-2" pref="87" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="Btn13" min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -259,7 +318,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Btn9" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton8" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="Btn14" min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="Btn4" min="-2" pref="87" max="-2" attributes="0"/>
@@ -268,7 +327,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Btn6" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton12" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="Btn15" min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="Btn1" min="-2" pref="87" max="-2" attributes="0"/>
@@ -277,17 +336,22 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Btn3" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton16" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="Btn16" min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="Btn0" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton19" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="Btn18" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton20" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="Btn17" min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblOp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -296,41 +360,43 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblDisplay" min="-2" pref="102" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblOp" min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="BtnClear" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn11" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn10" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn12" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn13" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Btn8" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn7" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn9" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton8" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn14" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Btn5" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn4" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn6" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton12" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn15" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Btn2" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn1" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="Btn3" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton16" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn16" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Btn0" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton19" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="jButton20" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn18" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="Btn17" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -349,31 +415,70 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Btn11">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="+/-"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn11ActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BtnClear">
+        <Component class="javax.swing.JButton" name="Btn10">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="AC"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnClearActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn10ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="Btn12">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="%"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn12ActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="Btn13">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="/"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn13ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Btn7">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="7"/>
           </Properties>
           <Events>
@@ -382,6 +487,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="Btn8">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="8"/>
           </Properties>
           <Events>
@@ -390,19 +501,40 @@
         </Component>
         <Component class="javax.swing.JButton" name="Btn9">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="9"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn9ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
+        <Component class="javax.swing.JButton" name="Btn14">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="*"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn14ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Btn4">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="4"/>
           </Properties>
           <Events>
@@ -411,6 +543,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="Btn5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="5"/>
           </Properties>
           <Events>
@@ -419,27 +557,57 @@
         </Component>
         <Component class="javax.swing.JButton" name="Btn6">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn6ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton12">
+        <Component class="javax.swing.JButton" name="Btn15">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn15ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Btn1">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn1ActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="BasicCalc_Btn1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="Btn2">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="2"/>
           </Properties>
           <Events>
@@ -448,33 +616,79 @@
         </Component>
         <Component class="javax.swing.JButton" name="Btn3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="3"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton16">
+        <Component class="javax.swing.JButton" name="Btn16">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="+"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn16ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Btn0">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn0ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton19">
+        <Component class="javax.swing.JButton" name="Btn18">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn18ActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton20">
+        <Component class="javax.swing.JButton" name="Btn17">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="="/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn17ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblOp">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
