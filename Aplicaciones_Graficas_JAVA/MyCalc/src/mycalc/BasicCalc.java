@@ -619,85 +619,56 @@ public class BasicCalc extends javax.swing.JFrame {
         // TODO add your handling code here:
         //String displayVal = lblDisplay.getText();
         //lblDisplay.setText(displayVal + "1");
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("1");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "1");
-        }
+        cargarNumero("1");
     }//GEN-LAST:event_Btn1ActionPerformed
 
     private void Btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn2ActionPerformed
         // TODO add your handling code here:
+        cargarNumero("2");
 
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("2");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "2");
-        }
     }//GEN-LAST:event_Btn2ActionPerformed
 
     private void Btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn3ActionPerformed
         // TODO add your handling code here:
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("3");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "3");
-        }
+        cargarNumero("3");
     }//GEN-LAST:event_Btn3ActionPerformed
 
     private void Btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn4ActionPerformed
         // TODO add your handling code here:
-   
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("4");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "4");
-        }
+        cargarNumero("4");
+
     }//GEN-LAST:event_Btn4ActionPerformed
 
     private void Btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn5ActionPerformed
         // TODO add your handling code here:
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("5");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "5");
-        }
+        cargarNumero("5");
     }//GEN-LAST:event_Btn5ActionPerformed
 
     private void Btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn6ActionPerformed
         // TODO add your handling code here:
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("6");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "6");
-        }
+        cargarNumero("6");
+
     }//GEN-LAST:event_Btn6ActionPerformed
 
     private void Btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn7ActionPerformed
         // TODO add your handling code here:
-   
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("7");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "7");
-        }
+        cargarNumero("7");
     }//GEN-LAST:event_Btn7ActionPerformed
 
     private void Btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn8ActionPerformed
-        // TODO add your handling code here:
-   
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("8");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "8");
-        }
+        // TODO add your handling code here:   
+        cargarNumero("8");
     }//GEN-LAST:event_Btn8ActionPerformed
-
+    private void cargarNumero(String numero){
+        
+       if (lblDisplay.getText().equals("0")) {
+            lblDisplay.setText(numero);
+        }else {
+            lblDisplay.setText(lblDisplay.getText() + numero);
+        }
+       
+    }
+    
     private void Btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn9ActionPerformed
         // TODO add your handling code here:
     
@@ -717,12 +688,7 @@ public class BasicCalc extends javax.swing.JFrame {
     private void Btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn0ActionPerformed
         // TODO add your handling code here:
         //lblDisplay.setText("0");
-        
-        if (lblDisplay.getText() == "0") {
-            lblDisplay.setText("0");
-        }else {
-            lblDisplay.setText(lblDisplay.getText() + "0");
-        }
+        cargarNumero("0");
     }//GEN-LAST:event_Btn0ActionPerformed
 
     private void jMenuItem_TextFontArialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextFontArialActionPerformed
