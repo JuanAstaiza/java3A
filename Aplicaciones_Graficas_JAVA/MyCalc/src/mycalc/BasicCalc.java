@@ -727,17 +727,17 @@ public class BasicCalc extends javax.swing.JFrame {
 
     private void jMenuItem_TextFontArialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextFontArialActionPerformed
         tipoLetra="Arial";
+        cargarFont(new Font("Arial", Font.BOLD, 18));        
+    }//GEN-LAST:event_jMenuItem_TextFontArialActionPerformed
+    private void cargarFont(Font font) {
+        lblOp.setFont(font);
         
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 18));
-        
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 60));
+        lblDisplay.setFont(new Font("Arial", Font.BOLD, 60));
         
         for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 18));
-        }   
-        
-    }//GEN-LAST:event_jMenuItem_TextFontArialActionPerformed
-
+            botones.get(i).setFont(font);
+        }
+    }
     private void jMenuItem_DarkulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DarkulaActionPerformed
         // TODO add your handling code here:
              
@@ -906,14 +906,7 @@ public class BasicCalc extends javax.swing.JFrame {
 
     private void jMenuItem_TextColorBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextColorBlackActionPerformed
         // TODO add your handling code here:
-                
-        lblOp.setForeground(Color.black);
-        
-        lblDisplay.setForeground(Color.black);
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setForeground(Color.black);
-        }
+        cargarColor(Color.black);
     }//GEN-LAST:event_jMenuItem_TextColorBlackActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -923,98 +916,77 @@ public class BasicCalc extends javax.swing.JFrame {
 
     private void jMenuItem_TextColorRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextColorRedActionPerformed
         // TODO add your handling code here:
-        lblOp.setForeground(Color.red);
-        
-        lblDisplay.setForeground(Color.red);
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setForeground(Color.red);
-        }
+        cargarColor(Color.red);
+
     }//GEN-LAST:event_jMenuItem_TextColorRedActionPerformed
 
     private void jMenuItem_TextColorWhiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextColorWhiteActionPerformed
         // TODO add your handling code here:
-        lblOp.setForeground(Color.white);
-        
-        lblDisplay.setForeground(Color.white);
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setForeground(Color.white);
-        }
+        cargarColor(Color.white);
+
     }//GEN-LAST:event_jMenuItem_TextColorWhiteActionPerformed
-
-    private void jMenuItem_TextFontCalibriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextFontCalibriActionPerformed
-        // TODO add your handling code here:        
-        tipoLetra="Calibri";
-
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 18));
+    private void cargarColor(Color color) {
+        lblOp.setForeground(color);
         
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 60));
+        lblDisplay.setForeground(color);
         
         for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 18));
-        }   
+            botones.get(i).setForeground(color);
+        }
+    } 
+    
+    private void jMenuItem_TextFontCalibriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextFontCalibriActionPerformed
+        tipoLetra="Calibri";
+        cargarFont(new Font("Calibri", Font.BOLD, 18));     
     }//GEN-LAST:event_jMenuItem_TextFontCalibriActionPerformed
 
     private void jMenuItem_TextSize12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextSize12ActionPerformed
-        // TODO add your handling code here:
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 12));
-        
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 12));
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 12));
-        }
+        cargarSize(new Font(tipoLetra, Font.BOLD, 12));
+
     }//GEN-LAST:event_jMenuItem_TextSize12ActionPerformed
 
     private void jMenuItem_TextSize14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextSize14ActionPerformed
-        // TODO add your handling code here:
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 14));
-        
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 14));
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 14));
-        }
+        cargarSize(new Font(tipoLetra, Font.BOLD, 14));
+
     }//GEN-LAST:event_jMenuItem_TextSize14ActionPerformed
 
     private void jMenuItem_TextSize18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextSize18ActionPerformed
-        // TODO add your handling code here:
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 18));
-        
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 18));
-        
-        for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 18));
-        }
+        cargarSize(new Font(tipoLetra, Font.BOLD, 18));
     }//GEN-LAST:event_jMenuItem_TextSize18ActionPerformed
 
     private void jMenuItem_TextSize20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextSize20ActionPerformed
-        // TODO add your handling code here:
-        lblOp.setFont(new Font(tipoLetra, Font.BOLD, 20));
+        cargarSize(new Font(tipoLetra, Font.BOLD, 20));
+    }//GEN-LAST:event_jMenuItem_TextSize20ActionPerformed
+    
+    private void cargarSize(Font font) {
+        lblOp.setFont(font);
         
-        lblDisplay.setFont(new Font(tipoLetra, Font.BOLD, 20));
+        lblDisplay.setFont(font);
         
         for (int i = 0; i < botones.size(); i++) {
-            botones.get(i).setFont(new Font(tipoLetra, Font.BOLD, 20));
+            botones.get(i).setFont(font);
         }
-    }//GEN-LAST:event_jMenuItem_TextSize20ActionPerformed
-
+    } 
+    
     private void jMenuItem_TextAligmentCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextAligmentCenterActionPerformed
         // TODO add your handling code here:
-        lblDisplay.setHorizontalAlignment(lblDisplay.CENTER);
+        // CENTER=0
+        cargarAligment(0);
     }//GEN-LAST:event_jMenuItem_TextAligmentCenterActionPerformed
 
     private void jMenuItem_TextAligmentLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextAligmentLeftActionPerformed
-        // TODO add your handling code here:
-        lblDisplay.setHorizontalAlignment(lblDisplay.LEFT);
+        // LEFT=2
+        cargarAligment(2);
     }//GEN-LAST:event_jMenuItem_TextAligmentLeftActionPerformed
 
     private void jMenuItem_TextAligmentRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_TextAligmentRightActionPerformed
-        // TODO add your handling code here:
-        lblDisplay.setHorizontalAlignment(lblDisplay.RIGHT);
+        // RIGHT=4
+        cargarAligment(4);
     }//GEN-LAST:event_jMenuItem_TextAligmentRightActionPerformed
-
+    
+    private void cargarAligment(int HorizontalAlignment){
+        lblDisplay.setHorizontalAlignment(HorizontalAlignment); 
+    }
     /**
      * @param args the command line arguments
      */
@@ -1113,4 +1085,5 @@ public class BasicCalc extends javax.swing.JFrame {
     private javax.swing.JLabel lblOp;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables
+
 }
