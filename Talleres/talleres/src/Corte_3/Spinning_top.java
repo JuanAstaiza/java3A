@@ -445,9 +445,12 @@ public class Spinning_top extends javax.swing.JFrame {
         btn_players.setText("Spin around -> Player 1");
              
 
-            for (int i = 1; i <= 4; i++) {
-                monedas.add(Integer.parseInt(numeroMonedas));     
-            }    
+        for (int i = 1; i <= 4; i++) {
+            monedas.add(Integer.parseInt(numeroMonedas));     
+        } 
+        
+        img_Pirinola.setIcon(new ImageIcon(getClass().getResource("/imagesCorte3/question.png")));
+            
         System.out.println("MONEDAS DE CADA JUGADOR: "+monedas);
     }//GEN-LAST:event_btn_reiniciarJuegoActionPerformed
 
@@ -603,8 +606,8 @@ public class Spinning_top extends javax.swing.JFrame {
             btn_Play.setEnabled(true);
             cmb_Coins.setEnabled(true);
             txt_ganador.setText(Integer.toString(jugador));
-            monedas.clear();         
-            
+            monedas.clear(); 
+            img_Pirinola.setIcon(new ImageIcon(getClass().getResource("/imagesCorte3/question.png")));            
         }
     }
 
