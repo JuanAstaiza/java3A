@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,6 +27,8 @@ public class Spinning_top extends javax.swing.JFrame {
     String numeroMonedas;
     
     ArrayList<Integer>  monedas = new ArrayList<Integer>();
+    ArrayList<JTextField>  txtField = new ArrayList<JTextField>();
+    ArrayList<Color>  colorTxtfield = new ArrayList<Color>();
 
     public Spinning_top() {
         initComponents();
@@ -33,8 +36,21 @@ public class Spinning_top extends javax.swing.JFrame {
         setResizable(false);
         //Cambiar el icono a un frame
         setIconImage(new ImageIcon(getClass().getResource("icon.png")).getImage());
-  
         
+        txtField.add(txt_CoinsPlayer1);
+        txtField.add(txt_CoinsPlayer2);
+        txtField.add(txt_CoinsPlayer3);
+        txtField.add(txt_CoinsPlayer4);
+        
+        Color colorPlayer1=new Color(255,102,0);
+        Color colorPlayer2=new Color(0,102,102);
+        Color colorPlayer3=new Color(0,102,51);
+        Color colorPlayer4=new Color(0,0,204);
+
+        colorTxtfield.add(colorPlayer1);
+        colorTxtfield.add(colorPlayer2);
+        colorTxtfield.add(colorPlayer3);
+        colorTxtfield.add(colorPlayer4);  
     }
 
     /**
@@ -385,21 +401,11 @@ public class Spinning_top extends javax.swing.JFrame {
         if(numeroMonedas.equals("Seleccione una opción")){
            JOptionPane.showMessageDialog(null, "Seleccione la cantidad de monedas.");
         }else{
-            txt_CoinsPlayer1.setText(numeroMonedas);
-            Color colorPlayer1=new Color(255,102,0);
-            txt_CoinsPlayer1.setBackground(colorPlayer1);
-            
-            txt_CoinsPlayer2.setText(numeroMonedas);
-            Color colorPlayer2=new Color(0,102,102);
-            txt_CoinsPlayer2.setBackground(colorPlayer2);
-            
-            txt_CoinsPlayer3.setText(numeroMonedas);
-            Color colorPlayer3=new Color(0,102,51);
-            txt_CoinsPlayer3.setBackground(colorPlayer3);
-            
-            txt_CoinsPlayer4.setText(numeroMonedas);
-            Color colorPlayer4=new Color(0,0,204);
-            txt_CoinsPlayer4.setBackground(colorPlayer4);
+            for (int i = 0; i < txtField.size(); i++) {
+                txtField.get(i).setText(numeroMonedas);
+                txtField.get(i).setBackground(colorTxtfield.get(i));
+              
+            }
             
             btn_Play.setEnabled(false);
             cmb_Coins.setEnabled(false);
@@ -426,21 +432,11 @@ public class Spinning_top extends javax.swing.JFrame {
         txt_ganador.setText("?");
 
         
-        txt_CoinsPlayer1.setText(numeroMonedas);
-        Color colorPlayer1=new Color(255,102,0);
-        txt_CoinsPlayer1.setBackground(colorPlayer1);
-
-        txt_CoinsPlayer2.setText(numeroMonedas);
-        Color colorPlayer2=new Color(0,102,102);
-        txt_CoinsPlayer2.setBackground(colorPlayer2);
-
-        txt_CoinsPlayer3.setText(numeroMonedas);
-        Color colorPlayer3=new Color(0,102,51);
-        txt_CoinsPlayer3.setBackground(colorPlayer3);
-
-        txt_CoinsPlayer4.setText(numeroMonedas);
-        Color colorPlayer4=new Color(0,0,204);
-        txt_CoinsPlayer4.setBackground(colorPlayer4);
+        for (int i = 0; i < txtField.size(); i++) {
+                txtField.get(i).setText(numeroMonedas);
+                txtField.get(i).setBackground(colorTxtfield.get(i));
+              
+        }
 
         btn_Play.setEnabled(false);
         cmb_Coins.setEnabled(false);
