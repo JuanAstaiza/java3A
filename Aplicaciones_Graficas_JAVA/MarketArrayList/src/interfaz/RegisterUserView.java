@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class RegisterUserView extends javax.swing.JFrame {
 

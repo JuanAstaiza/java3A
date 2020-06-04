@@ -7,7 +7,7 @@ package clases;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class User {
     //Users Data model

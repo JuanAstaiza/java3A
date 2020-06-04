@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package mymarket;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
-public class Market {
+public class MyMarket {
 
     /**
      * @param args the command line arguments

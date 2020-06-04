@@ -7,7 +7,7 @@ package mymarket;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class Dashboard extends javax.swing.JFrame {
 

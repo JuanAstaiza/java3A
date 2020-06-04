@@ -5,28 +5,28 @@
  */
 package Config;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.Connection;
 /**
  *
- * @author Galo
+ * @author juanc
  */
-public class Conector {
+public class Database {
     private String servidor;
     private String puerto;
     private String usuario;
     private String clave;
     private String bd;
     private Connection conexion;
-
-    public Conector() {
+    
+    public Database() {
         servidor="localhost";
         puerto="3306";
         usuario="root";
         clave="";
         bd="mymarket";
     }
+    
     
     public Connection conectar(){
         try {
@@ -44,14 +44,16 @@ public class Conector {
         try {
             conexion.close();
             System.out.println("Desconectado de la base de datos "+bd);
-        } catch (Exception e) {
+        }catch (Exception e) {
             System.out.println("Error al desconectar de la base de datos "+bd+"\n"+e.getMessage());
         }
     }
 
     public static void main(String[] args) {
-        Conector conector=new Conector();
+        Database conector=new Database();
         conector.conectar();
         conector.desconectar();
     }
-} 
+    
+
+}

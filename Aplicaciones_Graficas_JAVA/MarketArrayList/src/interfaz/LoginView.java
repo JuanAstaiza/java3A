@@ -143,7 +143,7 @@ public class LoginView extends javax.swing.JFrame {
             System.out.println(r.users.size());
             for (int i = 0; i < r.users.size(); i++) {
                 if(r.users.get(i).getEmail().equals(user) && r.users.get(i).getPassword().equals(password)){
-                    JOptionPane.showMessageDialog(rootPane, "Usuario o Password registrados...");
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o Password estan registrados...");
                     System.out.println((r.users.get(i).getEmail()));
                     ProductsView ventana=new ProductsView();
                     ventana.setVisible(true);
@@ -152,7 +152,7 @@ public class LoginView extends javax.swing.JFrame {
                 }                    
            }
            if(b!=true){
-                JOptionPane.showMessageDialog(rootPane, "Usuario o Password NO registrados...");
+                JOptionPane.showMessageDialog(rootPane, "Usuario o Password NO estan registrados...");
            }
         }
     }//GEN-LAST:event_btn_SignInActionPerformed

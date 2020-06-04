@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class ProductsView extends javax.swing.JFrame {
 

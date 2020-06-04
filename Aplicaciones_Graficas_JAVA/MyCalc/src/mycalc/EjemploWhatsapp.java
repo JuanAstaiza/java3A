@@ -7,7 +7,7 @@ package mycalc;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class EjemploWhatsapp extends javax.swing.JFrame {
 

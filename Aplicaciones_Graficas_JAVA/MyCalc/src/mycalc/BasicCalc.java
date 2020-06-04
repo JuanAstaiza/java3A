@@ -13,7 +13,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author Family
+ * @author juanc
  */
 public class BasicCalc extends javax.swing.JFrame {
 
