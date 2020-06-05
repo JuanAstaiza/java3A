@@ -124,7 +124,52 @@ public class Usuarios {
             conector.desconectar();
             return valido;
         }
-    }    
+    }  
+      
+    public static int getCantidadDatos(){
+        int cantidad=0;
+        String cadenaSQL="select count(id) as cantidad from users";
+        Database conector=new Database();
+        Connection conexion=conector.conectar();
+        try {
+            PreparedStatement sentencia=conexion.prepareStatement(cadenaSQL);
+            ResultSet resultado=sentencia.executeQuery();
+            if (resultado.next()) cantidad=resultado.getInt("cantidad");
+            conector.desconectar();
+        } catch (Exception e) {
+            System.out.println("Error en "+cadenaSQL+"\n"+e.getMessage());
+            conector.desconectar();
+        }
+        return cantidad;
+    }
+      
+    public static String[][] getLista(){
+        String [][] datos=new String[getCantidadDatos()][6];
+        String cadenaSQL="SELECT * from users;";
+        Database conector=new Database();
+        Connection conexion=conector.conectar();
+        try {
+            PreparedStatement sentencia=conexion.prepareStatement(cadenaSQL);
+            ResultSet resultado=sentencia.executeQuery();
+            int i=0;
+            while (resultado.next()) {
+                datos[i][0]=resultado.getString("firstname");
+                datos[i][1]=resultado.getString("lastname");
+                datos[i][2]=resultado.getString("gender");
+                datos[i][3]=resultado.getString("mobile");
+                datos[i][4]=resultado.getString("city");
+                datos[i][5]=resultado.getString("email");
+                i++;
+            }
+            conector.desconectar();
+        } catch (Exception e) {
+            System.out.println("Error en "+cadenaSQL+"\n"+e.getMessage());
+            conector.desconectar();
+        }
+        return datos;
+    }
+    
+  
 
     
 }
