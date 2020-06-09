@@ -53,7 +53,7 @@ public class Usuarios {
         return gender;
     }
 
-    public void setGender(String gelder) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
