@@ -1,6 +1,7 @@
 package interfaz;
 import clases.Products;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -24,6 +25,8 @@ public class ProductsView extends javax.swing.JFrame {
     
     public ProductsView() {
         initComponents();
+         this.setIconImage(new ImageIcon(getClass().getResource("../icons/market.png")).getImage());
+
     }
 
     /**

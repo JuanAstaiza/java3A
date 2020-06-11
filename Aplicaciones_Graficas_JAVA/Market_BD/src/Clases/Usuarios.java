@@ -126,9 +126,12 @@ public class Usuarios {
         }
     }  
       
-    public static int getCantidadDatos(){
+    public static int getCantidadDatos(String email){
+        if(email == null){
+            email="";
+        }
         int cantidad=0;
-        String cadenaSQL="select count(id) as cantidad from users";
+        String cadenaSQL="select count(id) as cantidad from users "+email;
         Database conector=new Database();
         Connection conexion=conector.conectar();
         try {
@@ -144,7 +147,7 @@ public class Usuarios {
     }
       
     public static String[][] getLista(){
-        String [][] datos=new String[getCantidadDatos()][6];
+        String [][] datos=new String[getCantidadDatos(null)][6];
         String cadenaSQL="SELECT * from users;";
         Database conector=new Database();
         Connection conexion=conector.conectar();

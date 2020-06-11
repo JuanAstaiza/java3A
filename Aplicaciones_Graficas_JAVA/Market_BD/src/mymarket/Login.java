@@ -6,7 +6,7 @@
 package mymarket;
 
 import Clases.Usuarios;
-import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +18,11 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+
+    
     public Login() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("../icons/market.png")).getImage());
     }
 
     /**
@@ -42,12 +45,15 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Username:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Username:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Password:");
 
+        btnSignin.setBackground(new java.awt.Color(0, 102, 51));
         btnSignin.setText("Sign in");
         btnSignin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +61,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnSignup.setBackground(new java.awt.Color(153, 0, 0));
         btnSignup.setText("Sign up");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,13 +129,20 @@ public class Login extends javax.swing.JFrame {
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         String email=txtEmail.getText();
         String clave=txtClave.getText();
-         if (Usuarios.validar(email, clave)) {
-             MainMenu ventana = new MainMenu();
-             ventana.setVisible(true);
-             this.dispose();
-         } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta");
-         }
+        if(email.equals("") || clave.equals("")){
+            JOptionPane.showMessageDialog(null, "::: Hay campos vacios :::");
+        }else{
+            if (Usuarios.validar(email, clave)) {
+                MainMenu ventana = new MainMenu();
+                //config txtNombre Usuario /Propiedades/Codigo/modificacionVariable/public esta en private
+                ventana.txtNombreUsuario.setText(email);
+                ventana.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto.");
+            }
+            
+        }
          
     }//GEN-LAST:event_btnSigninActionPerformed
 
